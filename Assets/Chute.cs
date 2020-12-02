@@ -52,7 +52,7 @@ public class Chute : MonoBehaviour
                 my_color = new Color(1, 0.5f, 0);
                 break;
             case col_ids.PURPLE:
-                my_color = new Color(1, 0, 1);
+                my_color = new Color(0.5f, 0, 1);
                 break;
             case col_ids.BLACK:
                 my_color = Color.black;
