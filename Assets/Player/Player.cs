@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    #region vars
     // Camera
     private Transform playerView;
     const float playerViewYOffset = 0.7f; // The height at which the camera is bound to
@@ -20,6 +21,12 @@ public class Player : MonoBehaviour
 
     Rigidbody rb;
 
+    // GravityGun
+    Rigidbody held_object = null;
+    Vector3 grip_offset = Vector3.forward * 1.5f;
+    const float PUSH_FORCE = 10;
+    const float PULL_FORCE = 0.5f;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +46,21 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         camUpdate();
+        if (Input.GetMouseButtonDown(0))
+        {
+            launch();
+        }
+        if (Input.GetMouseButton(1) && (held_object == null))
+        {
+            grab();
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            drop();
+        }
     }
 
     private void LateUpdate()
@@ -56,8 +74,13 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         move();
+        if (held_object)
+        {
+            pull();
+        }
     }
 
+    // Player movement
     private void move()
     {
         bool wish_jump = false;
@@ -89,7 +112,7 @@ public class Player : MonoBehaviour
         rb.velocity += acceleration;
     }
 
-    void applyFriction()
+    private void applyFriction()
     {
         Vector3 vel = rb.velocity;
         float speed = vel.magnitude;
@@ -126,5 +149,46 @@ public class Player : MonoBehaviour
             rotX = 90;
         transform.rotation = Quaternion.Euler(0, rotY, 0); // Rotates the collider
         playerView.rotation = Quaternion.Euler(rotX, rotY, 0); // Rotates the camera
+    }
+
+    // Gravity gun
+    private void grab()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(playerView.position, playerView.forward, out hit, 100.0f))
+        {
+            Debug.DrawRay(playerView.position, playerView.forward * 100.0f, Color.white, 1);
+            Rigidbody other = hit.collider.gameObject.GetComponent<Rigidbody>();
+            if(other)
+            {
+                held_object = other;
+            }
+        }
+    }
+
+    private void drop()
+    {
+        held_object = null;
+    }
+
+    private void pull()
+    {
+        Vector3 dest = playerView.position + playerView.rotation * grip_offset;
+        Vector3 diff = dest - held_object.gameObject.transform.position;
+        held_object.AddForce(diff * PULL_FORCE, ForceMode.Impulse);
+
+        Debug.DrawRay(held_object.gameObject.transform.position, diff, Color.green, Time.fixedDeltaTime);
+    }
+
+    private void launch()
+    {
+        if(held_object == null)
+        {
+            return;
+        }
+        Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
+        held_object.AddForce(dir, ForceMode.Impulse);
+        held_object = null;
+        Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
     }
 }
