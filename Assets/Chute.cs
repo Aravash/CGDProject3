@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChuteKiller : MonoBehaviour
+public class Chute : MonoBehaviour
 {
     enum col_ids
     {
