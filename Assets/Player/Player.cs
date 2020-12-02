@@ -191,4 +191,14 @@ public class Player : MonoBehaviour
         held_object = null;
         Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
     }
+
+    public bool hasHeldObject()
+    {
+        return held_object;
+    }
+
+    public Transform getHeldObjectTransform()
+    {
+        return held_object.transform;
+    }
 }
