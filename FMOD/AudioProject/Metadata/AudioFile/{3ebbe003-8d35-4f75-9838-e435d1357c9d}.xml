@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{3ebbe003-8d35-4f75-9838-e435d1357c9d}">
+		<property name="assetPath">
+			<value>161_huge- metal- impact- clatter- clang- metallic- hit- large- heavy- steel 003.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.4077708333333332</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d1893105-2114-434d-8406-7b79d7c55774}</destination>
+		</relationship>
+	</object>
+</objects>
