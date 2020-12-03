@@ -24,18 +24,18 @@ public class WeaponLook : MonoBehaviour
         if (_player.hasHeldObject())
         {
             Vector3 pos = _player.getHeldObjectTransform().position;
-            rotateTo(pos); //inefficient? might want alternative
+            RotateTo(pos); //inefficient? might want alternative
             _line.enabled = true;
             _line.SetPosition(2, transform.InverseTransformPoint(pos));
         }
         else
         {
-            rotateTo(spot.position);
+            RotateTo(spot.position);
             _line.enabled = false;
         }
     }
 
-    void rotateTo(Vector3 target)
+    void RotateTo(Vector3 target)
     {
         // Determine which direction to rotate towards
         Vector3 targetDirection = target - transform.position;
