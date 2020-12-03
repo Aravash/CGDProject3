@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21fb1236-1537-4a1c-b3d3-0bf31b0b605b" name="Default Changelist" comment="" />
+    <list default="true" id="21fb1236-1537-4a1c-b3d3-0bf31b0b605b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,7 +16,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../Robot-Buddies/Assets/resource/Shader/OverwatchShield.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/TestScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/scrolltex.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -21,6 +29,8 @@
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/renderDepthTexture.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/Camera.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/OverwatchShield.shader" />
+        <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/scrolltex.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" />
       </list>
     </option>
@@ -73,6 +83,9 @@
       <workItem from="1606942477461" duration="2793000" />
       <workItem from="1606945662593" duration="315000" />
       <workItem from="1606946011043" duration="1906000" />
+      <workItem from="1606993939313" duration="1824000" />
+      <workItem from="1607019564539" duration="3042000" />
+      <workItem from="1607031546880" duration="2650000" />
     </task>
     <servers />
   </component>
@@ -81,6 +94,17 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="663" y="224" key="VCS.ChangeListViewerDialog" timestamp="1606943166895">
       <screen x="0" y="0" width="1920" height="1040" />
