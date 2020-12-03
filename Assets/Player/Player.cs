@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
     Vector3 grip_offset = Vector3.forward * 1.5f;
     const float PUSH_FORCE = 10;
     const float PULL_FORCE = 0.5f;
+    const float PULL_MAX_SPEED = 1f;
+    float grab_cd = 0;
+    const float GRAB_CD = 0.5f;
+    float launch_cd = 0;
+    const float LAUNCH_CD = 1;
     #endregion
 
     // Start is called before the first frame update
@@ -49,17 +54,31 @@ public class Player : MonoBehaviour
     void Update()
     {
         camUpdate();
-        if (Input.GetMouseButtonDown(0))
+        // GravGun inputs
+        if (Input.GetMouseButtonDown(0) && launch_cd == 0)
         {
             launch();
         }
-        if (Input.GetMouseButton(1) && (held_object == null))
+        if (Input.GetMouseButton(1) && (held_object == null) && grab_cd == 0)
         {
             grab();
         }
         if (Input.GetMouseButtonUp(1))
         {
             drop();
+        }
+        // GravGun timers
+        if (launch_cd > 0)
+        {
+            launch_cd -= Time.deltaTime;
+            if (launch_cd < 0)
+                launch_cd = 0;
+        }
+        if (grab_cd > 0)
+        {
+            grab_cd -= Time.deltaTime;
+            if (grab_cd < 0)
+                grab_cd = 0;
         }
     }
 
@@ -178,17 +197,37 @@ public class Player : MonoBehaviour
         held_object.AddForce(diff * PULL_FORCE, ForceMode.Impulse);
 
         Debug.DrawRay(held_object.gameObject.transform.position, diff, Color.green, Time.fixedDeltaTime);
+
+        // Truncate the object's vel
+        float mag = Vector3.Dot(held_object.velocity, playerView.transform.rotation * Vector3.forward);
+        if (mag > PULL_MAX_SPEED)
+            held_object.velocity *= PULL_MAX_SPEED / mag;
     }
 
     private void launch()
     {
-        if(held_object == null)
+        grab_cd = GRAB_CD;
+        launch_cd = LAUNCH_CD;
+        // Throw the held object
+        if(held_object != null)
         {
+            Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
+            held_object.AddForce(dir, ForceMode.Impulse);
+            held_object = null;
+            Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
             return;
         }
-        Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
-        held_object.AddForce(dir, ForceMode.Impulse);
-        held_object = null;
-        Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
+        // Punt the object in front
+        RaycastHit hit;
+        if (Physics.Raycast(playerView.position, playerView.forward, out hit, 100.0f))
+        {
+            Debug.DrawRay(playerView.position, playerView.forward * 100.0f, Color.white, 1);
+            Rigidbody other = hit.collider.gameObject.GetComponent<Rigidbody>();
+            if (other)
+            {
+                Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
+                other.AddForceAtPosition(dir, hit.point, ForceMode.Impulse);
+            }
+        }
     }
 }
