@@ -7,6 +7,9 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Chute.cs" t="Include" />
+        <e p="objects" t="Include">
+          <e p="ObjectCreator.cs" t="Include" />
+        </e>
         <e p="Player" t="Include">
           <e p="CPMA.cs" t="Include" />
           <e p="Player.cs" t="Include" />
