@@ -9,17 +9,36 @@ using UnityEngine;
 public class WeaponLook : MonoBehaviour
 {
     [SerializeField] private float lookAtSpeed = 1.0f;
-    [SerializeField]private Player _player;
-    [SerializeField]private Transform spot;
+    [SerializeField] private Player _player;
+    [SerializeField] private Transform spot; 
+    private LineRenderer _line;
+
+    private void Start()
+    {
+        _line = GetComponent<LineRenderer>();
+    }
 
     // Update is called once per frame
     void Update()
     {
+        /*var position = transform.position;
+        Vector3[] offset = {new Vector3(position.x, position.y, position.z + 1f),new Vector3(position.x, position.y, position.z + 2f)};
+        _line.SetPosition(0, position + Vector3.forward);
+        _line.SetPosition(1, position + (Vector3.forward * 2));*/
+        
         if (_player.hasHeldObject())
         {
-            rotateTo(_player.getHeldObjectTransform().position);//inefficient? might want alternative
+            Vector3 pos = _player.getHeldObjectTransform().position;
+            rotateTo(pos); //inefficient? might want alternative
+            _line.enabled = true;
+            _line.SetPosition(2, transform.InverseTransformPoint(pos));
         }
-        else rotateTo(spot.position);
+        else
+        {
+            rotateTo(spot.position);
+            _line.enabled = false;
+            _line.SetPosition(2, Vector3.forward);
+        }
     }
 
     void rotateTo(Vector3 target)
