@@ -21,11 +21,6 @@ public class WeaponLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*var position = transform.position;
-        Vector3[] offset = {new Vector3(position.x, position.y, position.z + 1f),new Vector3(position.x, position.y, position.z + 2f)};
-        _line.SetPosition(0, position + Vector3.forward);
-        _line.SetPosition(1, position + (Vector3.forward * 2));*/
-        
         if (_player.hasHeldObject())
         {
             Vector3 pos = _player.getHeldObjectTransform().position;
@@ -37,7 +32,6 @@ public class WeaponLook : MonoBehaviour
         {
             rotateTo(spot.position);
             _line.enabled = false;
-            _line.SetPosition(2, Vector3.forward);
         }
     }
 

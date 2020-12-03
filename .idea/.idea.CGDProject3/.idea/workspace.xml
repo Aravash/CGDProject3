@@ -4,8 +4,8 @@
     <list default="true" id="21fb1236-1537-4a1c-b3d3-0bf31b0b605b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +85,7 @@
       <workItem from="1606946011043" duration="1906000" />
       <workItem from="1606993939313" duration="1824000" />
       <workItem from="1607019564539" duration="3042000" />
+      <workItem from="1607031546880" duration="2107000" />
     </task>
     <servers />
   </component>
