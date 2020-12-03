@@ -230,4 +230,14 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    public bool hasHeldObject()
+    {
+        return held_object;
+    }
+
+    public Transform getHeldObjectTransform()
+    {
+        return held_object.transform;
+    }
 }
