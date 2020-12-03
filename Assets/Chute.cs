@@ -60,30 +60,27 @@ public class Chute : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         GameObject.Destroy(other, 2);
+
+        // No points gained or lost from incinerating an object
         if (incinerator)
             return;
 
+        // classify object
         if (other.tag == "GOOD")
         {
-            if (other.gameObject.GetComponent<Renderer>().material.color == my_color)
+            if (other.GetComponent<Renderer>().material.color == my_color)
             {
-                Debug.Log("CORRECT! GAIN POINTS!!!!");
+                Debug.Log("CORRECT! GAIN POINTS!!"); // gain 2
                 return;
             }
-            Debug.Log("WRONG!!! LOSE POINTS!!!!");
+            Debug.Log("WRONG!!! LOSE POINTS!!!"); // lose 3
         }
         else if (other.tag == "BAD")
         {
-            Debug.Log("WRONG!!! LOSE POINTS!!!!");
+            Debug.Log("WRONG!!! LOSE MANY POINTS!!!!!"); // lose 5
         }
     }
 }
