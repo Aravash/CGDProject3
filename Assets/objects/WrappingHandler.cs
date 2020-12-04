@@ -12,21 +12,15 @@ public class WrappingHandler : MonoBehaviour
         // Resize wrapping
         Collider transCol = transform.transform.Find("Mesh").GetComponent<Collider>();
         Collider wrapCol = wrapping.transform.Find("Mesh").GetComponent<Collider>();
+        
+        float xDif = transCol.bounds.size.x - wrapCol.bounds.size.x;
+        float yDif = transCol.bounds.size.y - wrapCol.bounds.size.y;
+        float zDif = transCol.bounds.size.z - wrapCol.bounds.size.z;
 
-
-        //float sizeDif = transCol.bounds.size - wrapCol.bounds.size;
-        float xDif = transCol.bounds.max.x - wrapCol.bounds.max.x;
-        float yDif = transCol.bounds.max.y - wrapCol.bounds.max.y;
-        float zDif = transCol.bounds.max.z - wrapCol.bounds.max.z;
-        Debug.Log(transCol.bounds.size);
-        Debug.Log(wrapCol.bounds.size);
-
-        float ratioX = (xDif + wrapCol.bounds.max.x) / wrapCol.bounds.max.x;
-        float ratioY = (yDif + wrapCol.bounds.max.y) / wrapCol.bounds.max.y;
-        float ratioZ = (zDif + wrapCol.bounds.max.z) / wrapCol.bounds.max.z;
-        Debug.Log(ratioX);
-        Debug.Log(ratioY);
-        Debug.Log(ratioZ);
+        float wrapPadding = 1.2f;
+        float ratioX = ((xDif + wrapCol.bounds.size.x) * wrapPadding) / wrapCol.bounds.size.x;
+        float ratioY = ((yDif + wrapCol.bounds.size.y) * wrapPadding) / wrapCol.bounds.size.y;
+        float ratioZ = ((zDif + wrapCol.bounds.size.z) * wrapPadding) / wrapCol.bounds.size.z;
 
         float highest = ratioX;
         if (ratioY > highest) highest = ratioY;
@@ -36,6 +30,7 @@ public class WrappingHandler : MonoBehaviour
     }
     void Update()
     {
-        // If hit against wall with force, shread wrapping & remove this script
+        //If hit against wall with force:
+        //shread wrapping (remove mesh layer, create pop particles, etc.) & remove this script
     }
 }

@@ -28,6 +28,11 @@ public class ObjectCreator : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             Debug.Log("K pressed");
+            BuildObject(ObjectTypes.REGULAR, false);
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("L pressed");
             BuildObject(ObjectTypes.REGULAR, true);
         }
     }
@@ -49,11 +54,13 @@ public class ObjectCreator : MonoBehaviour
                 }
             case (ObjectTypes.TRASH):
                 {
+                    //Currently same as regular
                     newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
                     break;
                 }
             case (ObjectTypes.ENEMY):
                 {
+                    //Currently same as regular
                     newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
                     break;
                 }
