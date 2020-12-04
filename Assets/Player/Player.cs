@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     Vector3 grip_offset = Vector3.forward * 2f;
     const float PUSH_FORCE = 15;
     const float PULL_FORCE = 0.1f;
-    const float PULL_MAX_SPEED = 10f;
+    const float PULL_MAX_SPEED = 20f;
     const float ESCAPE_DRAG_MULT = 0.1f;
     // GravGun timers
     float grab_cd = 0;
