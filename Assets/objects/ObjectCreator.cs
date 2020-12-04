@@ -2,31 +2,66 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
+
+public enum ObjectTypes
+{
+    REGULAR,
+    TRASH,
+    ENEMY,
+}
 
 public class ObjectCreator : MonoBehaviour
 {
-    private Object[] models;
+    private GameObject[] models;
+    private BoxCollider col;
 
     void Start()
     {
-        models = Resources.LoadAll("obj", typeof(Object));
-
-        if(models.Length < 3) Debug.Log("Fucked up");
-        
-        foreach (var t in models)
-        {
-            Debug.Log(t.name);
-        }
+        models = Resources.LoadAll<GameObject>("objects");
+        col = GetComponent<BoxCollider>();
     }
 
     private void Update()
     {
+        //Test code
         if (Input.GetKeyDown(KeyCode.K))
         {
             Debug.Log("K pressed");
-            int index = UnityEngine.Random.Range(0, models.Length);
-            GameObject obj = (GameObject)Instantiate(models[index], transform.position, transform.rotation);
+            BuildObject(ObjectTypes.REGULAR, true);
+        }
+    }
+
+    public void BuildObject(ObjectTypes type, bool wrapped)
+    {
+        Vector3 pos = new Vector3(Random.Range(col.bounds.min.x, col.bounds.max.x),
+                                  transform.position.y,
+                                  Random.Range(col.bounds.min.z, col.bounds.max.z));
+
+        GameObject newObj = gameObject;
+
+        switch (type)
+        {
+            case (ObjectTypes.REGULAR):
+                {
+                    newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
+                    break;
+                }
+            case (ObjectTypes.TRASH):
+                {
+                    newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
+                    break;
+                }
+            case (ObjectTypes.ENEMY):
+                {
+                    newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
+                    break;
+                }
+        }
+
+        if (wrapped)
+        {
+            newObj.AddComponent<WrappingHandler>();
         }
     }
 }
