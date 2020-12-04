@@ -7,13 +7,13 @@ public class Player : MonoBehaviour
     #region vars
     // Camera
     private Transform playerView;
-    const float playerViewYOffset = 0.7f; // The height at which the camera is bound to
+    const float playerViewYOffset = 0.7f; // The height the camera is bound to
     [SerializeField] float xMouseSensitivity = 30.0f;
     [SerializeField] float yMouseSensitivity = 30.0f;
     private float rotX = 0.0f;
     private float rotY = 0.0f;
 
-    const float MV_ACCEL = 2f;
+    const float MV_ACCEL = 2.5f;
     const float MV_FRICTION = 0.5f;
     const float MV_AIR_FRICTION = 0.3f;
 
@@ -24,13 +24,13 @@ public class Player : MonoBehaviour
     // GravityGun
     Rigidbody held_object = null;
     Vector3 grip_offset = Vector3.forward * 1.5f;
-    const float PUSH_FORCE = 10;
-    const float PULL_FORCE = 0.5f;
-    const float PULL_MAX_SPEED = 1f;
+    const float PUSH_FORCE = 15;
+    const float PULL_FORCE = 0.3f;
+    const float PULL_MAX_SPEED = 10f;
     float grab_cd = 0;
-    const float GRAB_CD = 0.5f;
+    const float GRAB_CD = 0.3f;
     float launch_cd = 0;
-    const float LAUNCH_CD = 1;
+    const float LAUNCH_CD = 0.5f;
     #endregion
 
     // Start is called before the first frame update
@@ -181,12 +181,15 @@ public class Player : MonoBehaviour
             if(other)
             {
                 held_object = other;
+                held_object.useGravity = false;
             }
         }
     }
 
     private void drop()
     {
+        if(held_object)
+            held_object.useGravity = true;
         held_object = null;
     }
 
@@ -199,7 +202,8 @@ public class Player : MonoBehaviour
         Debug.DrawRay(held_object.gameObject.transform.position, diff, Color.green, Time.fixedDeltaTime);
 
         // Truncate the object's vel
-        float mag = Vector3.Dot(held_object.velocity, playerView.transform.rotation * Vector3.forward);
+        float mag = Vector3.Dot(held_object.velocity, diff.normalized);
+        Debug.Log("Mag: " + mag);
         if (mag > PULL_MAX_SPEED)
             held_object.velocity *= PULL_MAX_SPEED / mag;
     }
@@ -211,6 +215,8 @@ public class Player : MonoBehaviour
         // Throw the held object
         if(held_object != null)
         {
+            held_object.useGravity = true;
+
             Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
             held_object.AddForce(dir, ForceMode.Impulse);
             held_object = null;
