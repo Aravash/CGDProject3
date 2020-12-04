@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 15037099}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,10 +244,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 46538915}
+  - component: {fileID: 46538916}
   - component: {fileID: 46538919}
   - component: {fileID: 46538918}
   - component: {fileID: 46538917}
-  - component: {fileID: 46538916}
   m_Layer: 0
   m_Name: ChuteTrigger (4)
   m_TagString: Untagged
@@ -282,6 +282,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desired_type: 3
+  GoodGain: 4
+  WrongColourLoss: 2
+  BadLoss: 2
   incinerator: 0
 --- !u!65 &46538917
 BoxCollider:
@@ -393,7 +396,7 @@ GameObject:
   - component: {fileID: 97403230}
   m_Layer: 0
   m_Name: Cube (8)
-  m_TagString: Untagged
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -505,7 +508,7 @@ GameObject:
   - component: {fileID: 122133091}
   m_Layer: 0
   m_Name: Cube (7)
-  m_TagString: Untagged
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -795,10 +798,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 192324547}
+  - component: {fileID: 192324543}
   - component: {fileID: 192324546}
   - component: {fileID: 192324545}
   - component: {fileID: 192324544}
-  - component: {fileID: 192324543}
   m_Layer: 0
   m_Name: ChuteTrigger
   m_TagString: Untagged
@@ -819,6 +822,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desired_type: 6
+  GoodGain: 2
+  WrongColourLoss: 3
+  BadLoss: 5
   incinerator: 0
 --- !u!65 &192324544
 BoxCollider:
@@ -1365,10 +1371,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 346113493}
+  - component: {fileID: 346113489}
   - component: {fileID: 346113492}
   - component: {fileID: 346113491}
   - component: {fileID: 346113490}
-  - component: {fileID: 346113489}
   m_Layer: 0
   m_Name: ChuteTrigger (2)
   m_TagString: Untagged
@@ -1389,6 +1395,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desired_type: 5
+  GoodGain: 2
+  WrongColourLoss: 3
+  BadLoss: 5
   incinerator: 0
 --- !u!65 &346113490
 BoxCollider:
@@ -1953,10 +1962,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 619106533}
+  - component: {fileID: 619106534}
   - component: {fileID: 619106537}
   - component: {fileID: 619106536}
   - component: {fileID: 619106535}
-  - component: {fileID: 619106534}
   m_Layer: 0
   m_Name: ChuteTrigger (5)
   m_TagString: Untagged
@@ -1991,6 +2000,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desired_type: 8
+  GoodGain: 4
+  WrongColourLoss: 2
+  BadLoss: 2
   incinerator: 0
 --- !u!65 &619106535
 BoxCollider:
@@ -2069,7 +2081,7 @@ GameObject:
   - component: {fileID: 638555343}
   m_Layer: 0
   m_Name: Cube (11)
-  m_TagString: Untagged
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2205,7 +2217,7 @@ GameObject:
   - component: {fileID: 768527032}
   m_Layer: 0
   m_Name: Cube (14)
-  m_TagString: Untagged
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2409,7 +2421,7 @@ GameObject:
   - component: {fileID: 917946560}
   m_Layer: 0
   m_Name: Cube (12)
-  m_TagString: Untagged
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2515,10 +2527,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 959109413}
+  - component: {fileID: 959109409}
   - component: {fileID: 959109412}
   - component: {fileID: 959109411}
   - component: {fileID: 959109410}
-  - component: {fileID: 959109409}
   m_Layer: 0
   m_Name: ChuteTrigger (1)
   m_TagString: Untagged
@@ -2539,6 +2551,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desired_type: 2
+  GoodGain: 2
+  WrongColourLoss: 3
+  BadLoss: 5
   incinerator: 0
 --- !u!65 &959109410
 BoxCollider:
@@ -2984,6 +2999,49 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1210604095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1210604097}
+  - component: {fileID: 1210604096}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1210604096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210604095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555fa9d9b18fc5649882e8f290869e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1210604097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210604095}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.672967, y: -1.1438606, z: 8.445033}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1298775342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3287,10 +3345,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1463563879}
+  - component: {fileID: 1463563875}
   - component: {fileID: 1463563878}
   - component: {fileID: 1463563877}
   - component: {fileID: 1463563876}
-  - component: {fileID: 1463563875}
   m_Layer: 0
   m_Name: ChuteTrigger (3)
   m_TagString: Untagged
@@ -3311,6 +3369,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desired_type: 4
+  GoodGain: 2
+  WrongColourLoss: 3
+  BadLoss: 5
   incinerator: 0
 --- !u!65 &1463563876
 BoxCollider:
@@ -3763,7 +3824,7 @@ GameObject:
   - component: {fileID: 1676104592}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3916,7 +3977,7 @@ GameObject:
   - component: {fileID: 1888681593}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4212,7 +4273,7 @@ GameObject:
   - component: {fileID: 1998894546}
   m_Layer: 0
   m_Name: Cube (9)
-  m_TagString: Untagged
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4324,7 +4385,7 @@ GameObject:
   - component: {fileID: 2054181084}
   m_Layer: 0
   m_Name: Cube (10)
-  m_TagString: Untagged
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4436,7 +4497,7 @@ GameObject:
   - component: {fileID: 2113268119}
   m_Layer: 0
   m_Name: Cube (13)
-  m_TagString: Untagged
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -19,6 +19,10 @@ public class Chute : MonoBehaviour
     }
     [SerializeField] col_ids desired_type = col_ids.WHITE;
     Color my_color;
+    [SerializeField] private float GoodGain = 2f;
+    [SerializeField] private float WrongColourLoss = 3f;
+    [SerializeField] private float BadLoss = 5;
+    
     [SerializeField] bool incinerator = false;
 
 
@@ -62,7 +66,8 @@ public class Chute : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject.Destroy(other, 2);
+        Debug.Log("object collided with");
+        Destroy(other, 2);
 
         // No points gained or lost from incinerating an object
         if (incinerator)
@@ -74,13 +79,16 @@ public class Chute : MonoBehaviour
             if (other.GetComponent<Renderer>().material.color == my_color)
             {
                 Debug.Log("CORRECT! GAIN POINTS!!"); // gain 2
+                GameManager.AddScore(GoodGain);
                 return;
             }
             Debug.Log("WRONG!!! LOSE POINTS!!!"); // lose 3
+            GameManager.SubtractScore(WrongColourLoss);
         }
         else if (other.tag == "BAD")
         {
             Debug.Log("WRONG!!! LOSE MANY POINTS!!!!!"); // lose 5
+            GameManager.SubtractScore(BadLoss);
         }
     }
 }
