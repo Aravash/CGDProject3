@@ -18,6 +18,7 @@
             <e p="renderDepthTexture.cs" t="Include" />
             <e p="scrolltex.cs" t="Include" />
             <e p="WeaponLook.cs" t="Include" />
+            <e p="WeaponSway.cs" t="Include" />
           </e>
         </e>
       </e>

@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
     const float PULL_FORCE = 0.1f;
     const float PULL_MAX_SPEED = 20f;
     const float ESCAPE_DRAG_MULT = 0.1f;
+
+    [SerializeField]private WeaponSway gunSway;
+    
     // GravGun timers
     float grab_cd = 0;
     const float GRAB_CD = 0.3f;
@@ -161,8 +164,10 @@ public class Player : MonoBehaviour
     private void camUpdate()
     {
         /* Camera rotation stuff, mouse controls this stuff */
-        rotX -= Input.GetAxis("Mouse Y") * xMouseSensitivity * 0.02f;
-        rotY += Input.GetAxis("Mouse X") * yMouseSensitivity * 0.02f;
+        float changeX = Input.GetAxis("Mouse Y") * xMouseSensitivity * 0.02f;
+        float changeY = Input.GetAxis("Mouse X") * yMouseSensitivity * 0.02f;
+        rotX -= changeX;
+        rotY += changeY;
         // Clamp the X rotation
         if (rotX < -90)
             rotX = -90;
@@ -170,6 +175,8 @@ public class Player : MonoBehaviour
             rotX = 90;
         transform.rotation = Quaternion.Euler(0, rotY, 0); // Rotates the collider
         playerView.rotation = Quaternion.Euler(rotX, rotY, 0); // Rotates the camera
+        gunSway.gunUpdate(new Vector3(changeY, changeX, 0));
+
     }
 
     // Gravity gun
