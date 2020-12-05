@@ -6,6 +6,96 @@
       <change beforePath="$PROJECT_DIR$/Assets/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerHolder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerHolder.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/JRE.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/JRE.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/MFDOLL.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/MFDOLL.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/banana.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/banana.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/bear.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/bear.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/bench.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/bench.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/beret.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/beret.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/bin.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/bin.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/binoutdoor.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/binoutdoor.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/book.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/book.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/cabinet.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/cabinet.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/cake.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/cake.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/car.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/car.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/ceilingfan.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/ceilingfan.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/chair.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/chair.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/chairstool.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/chairstool.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/crab.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/crab.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/davidbust.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/davidbust.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/derringer.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/derringer.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/diggerclaw.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/diggerclaw.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/drawer.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/drawer.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/fancychair.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/fancychair.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/fancydoubledoors.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/fancydoubledoors.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/footcrate.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/footcrate.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/gamerchair.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/gamerchair.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/glove.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/glove.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/grapes.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/grapes.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/guitar.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/guitar.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/gunsnubnose.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/gunsnubnose.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/hand.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/hand.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/lamp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/lamp.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/lampdemo.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/lampdemo.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/lamprustic.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/lamprustic.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/mug.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/mug.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/plane.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/plane.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/racecar.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/racecar.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/roundtable.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/roundtable.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/securitycamera.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/securitycamera.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/sofa.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/sofa.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/statue.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/statue.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/table.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/table.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/television2.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/television2.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/toiletpaper.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/toiletpaper.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/toyrocket.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/toyrocket.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/truck.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/truck.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/truckdemo.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/truckdemo.obj.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +112,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/scrolltex.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Astar pathfinding/Assets/pathRequestManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Astar pathfinding/Assets/Agent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Level Components/Chute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponSway.cs" root0="FORCE_HIGHLIGHTING" />
@@ -41,6 +132,7 @@
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponSway.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" />
+        <option value="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" />
       </list>
     </option>
   </component>
@@ -101,6 +193,7 @@
       <workItem from="1607179053161" duration="3147000" />
       <workItem from="1607188912538" duration="9000" />
       <workItem from="1607189206739" duration="1771000" />
+      <workItem from="1607031546880" duration="4648000" />
     </task>
     <servers />
   </component>
