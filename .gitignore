@@ -65,4 +65,6 @@ crashlytics-build.properties
 fmod.log
 fmod_editor.log
 */.cache/
-
+.user/
+.restore/
+.cache/
