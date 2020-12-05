@@ -71,4 +71,9 @@ public class ObjectCreator : MonoBehaviour
             newObj.AddComponent<WrappingHandler>();
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position, Vector3.one);
+    }
 }

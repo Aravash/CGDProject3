@@ -7,12 +7,14 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Level Components" t="Include">
+          <e p="CanvasManager.cs" t="Include" />
           <e p="Chute.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="TriggerPush.cs" t="Include" />
         </e>
         <e p="objects" t="Include">
           <e p="ObjectCreator.cs" t="Include" />
+          <e p="WrappingHandler.cs" t="Include" />
         </e>
         <e p="Player" t="Include">
           <e p="CPMA.cs" t="Include" />

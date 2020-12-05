@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private float scoreChangeSpeed = 2.0f;
 
     [SerializeField] private Image mask;
-    
+
     private static GameManager instance;
 
     void Awake()
@@ -27,6 +27,17 @@ public class GameManager : MonoBehaviour
             float changeSpeed = scoreChangeSpeed * Time.deltaTime;
             currentVisualScore = Mathf.Lerp(currentVisualScore, currentScore, changeSpeed);
             UpdateFillAmount();
+        }
+
+        if (currentVisualScore >= maxScore)
+        {
+            CanvasManager.ShowWin();
+            Destroy(this); // dont need gameManager when game is over
+        }
+        else if (currentVisualScore <= 0)
+        {
+            CanvasManager.ShowLose();
+            Destroy(this);
         }
     }
 
