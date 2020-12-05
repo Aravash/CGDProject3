@@ -10,6 +10,8 @@ public class WeaponLook : MonoBehaviour
 {
     [SerializeField] private float lookAtSpeed = 1.0f;
     [SerializeField] private Player _player;
+    [SerializeField] private Transform muzzleSpot;
+    [SerializeField] private Transform muzzleSpot2;
     [SerializeField] private Transform spot; 
     private LineRenderer _line;
 
@@ -27,6 +29,8 @@ public class WeaponLook : MonoBehaviour
             RotateTo(pos); //inefficient? might want alternative
             _line.enabled = true;
             _line.SetPosition(2, transform.InverseTransformPoint(pos));
+            _line.SetPosition(1, transform.InverseTransformPoint(muzzleSpot2.position));
+            _line.SetPosition(0, transform.InverseTransformPoint(muzzleSpot.position));
         }
         else
         {
