@@ -47,7 +47,7 @@ public class Chute : MonoBehaviour
                 my_color = Color.cyan;
                 break;
             case col_ids.YELLOW:
-                my_color = Color.yellow;
+                my_color = new Color(1, 1, 0, 1);
                 break;
             case col_ids.LIME:
                 my_color = Color.green;
@@ -78,16 +78,16 @@ public class Chute : MonoBehaviour
         {
             if (other.GetComponent<Renderer>().material.color == my_color)
             {
-                //Debug.Log("CORRECT! GAIN POINTS!!"); // gain 2
+                Debug.Log("CORRECT! GAIN POINTS!!"); // gain 2
                 GameManager.ChangeScore(GoodGain);
                 return;
             }
-            //Debug.Log("WRONG!!! LOSE POINTS!!!"); // lose 3
+            Debug.Log("WRONG!!! LOSE POINTS!!!"); // lose 3
             GameManager.ChangeScore(-WrongColourLoss);
         }
         else if (other.tag == "BAD")
         {
-            //Debug.Log("WRONG!!! LOSE MANY POINTS!!!!!"); // lose 5
+            Debug.Log("WRONG!!! LOSE MANY POINTS!!!!!"); // lose 5
             GameManager.ChangeScore(-BadLoss);
         }
     }

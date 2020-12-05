@@ -4,10 +4,6 @@
     <list default="true" id="21fb1236-1537-4a1c-b3d3-0bf31b0b605b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Level Components/Chute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Components/Chute.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/car.obj" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/objects/objs/car.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/objects/objs/car.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/objects/objs/car.obj.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +23,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Level Components/Chute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/objects/objs/car.obj.meta" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -96,7 +93,7 @@
       <workItem from="1607019564539" duration="3042000" />
       <workItem from="1607031546880" duration="2650000" />
       <workItem from="1607107164935" duration="3556000" />
-      <workItem from="1607128004508" duration="3275000" />
+      <workItem from="1607128004508" duration="3865000" />
     </task>
     <servers />
   </component>
