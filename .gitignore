@@ -65,6 +65,7 @@ crashlytics-build.properties
 fmod.log
 fmod_editor.log
 
+FMOD\AudioProject\.unsaved
 .user/
 .restore/
 .cache/
