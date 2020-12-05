@@ -2,13 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private float score;
-    private float scoreToAdd;
-    private float scoreToLose;
+    private float maxScore = 10;
+    private float currentScore = 5;
+    private float currentVisualScore = 1;
     private float scoreChangeSpeed = 2.0f;
+
+    [SerializeField] private Image mask;
     
     private static GameManager instance;
 
@@ -19,30 +22,21 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        float changeSpeed = scoreChangeSpeed * Time.deltaTime;
-        
-        if (scoreToAdd > 0)
+        if (Math.Abs(currentVisualScore - currentScore) > 0.01f)
         {
-            score += scoreToAdd * changeSpeed;
-            scoreToAdd -= changeSpeed;
+            float changeSpeed = scoreChangeSpeed * Time.deltaTime;
+            currentVisualScore = Mathf.Lerp(currentVisualScore, currentScore, changeSpeed);
+            UpdateFillAmount();
         }
-        else scoreToAdd = 0;
-        
-        if (scoreToLose < 0)
-        {
-            score -= scoreToLose * changeSpeed;
-            scoreToLose -= changeSpeed;
-        }
-        else scoreToLose = 0;
     }
 
-    public static void AddScore(float change)
+    private void UpdateFillAmount()
     {
-        instance.scoreToAdd += change;
+        mask.fillAmount = currentVisualScore / maxScore;
     }
-    
-    public static void SubtractScore(float change)
+
+    public static void ChangeScore(float change)
     {
-        instance.scoreToLose += change;
+        instance.currentScore += change;
     }
 }

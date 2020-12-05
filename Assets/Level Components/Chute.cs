@@ -78,17 +78,17 @@ public class Chute : MonoBehaviour
         {
             if (other.GetComponent<Renderer>().material.color == my_color)
             {
-                Debug.Log("CORRECT! GAIN POINTS!!"); // gain 2
-                GameManager.AddScore(GoodGain);
+                //Debug.Log("CORRECT! GAIN POINTS!!"); // gain 2
+                GameManager.ChangeScore(GoodGain);
                 return;
             }
-            Debug.Log("WRONG!!! LOSE POINTS!!!"); // lose 3
-            GameManager.SubtractScore(WrongColourLoss);
+            //Debug.Log("WRONG!!! LOSE POINTS!!!"); // lose 3
+            GameManager.ChangeScore(-WrongColourLoss);
         }
         else if (other.tag == "BAD")
         {
-            Debug.Log("WRONG!!! LOSE MANY POINTS!!!!!"); // lose 5
-            GameManager.SubtractScore(BadLoss);
+            //Debug.Log("WRONG!!! LOSE MANY POINTS!!!!!"); // lose 5
+            GameManager.ChangeScore(-BadLoss);
         }
     }
 }
