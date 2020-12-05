@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     const float ESCAPE_DRAG_MULT = 0.1f;
 
     [SerializeField]private WeaponSway gunSway;
-    
+
     // GravGun timers
     float grab_cd = 0;
     const float GRAB_CD = 0.3f;

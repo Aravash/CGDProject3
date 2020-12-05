@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21fb1236-1537-4a1c-b3d3-0bf31b0b605b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerHolder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerHolder.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +38,9 @@
         <option value="$PROJECT_DIR$/Assets/Level Components/UI/ProgressBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/Chute.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponSway.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" />
       </list>
     </option>
   </component>
@@ -100,7 +98,9 @@
       <workItem from="1607031546880" duration="2650000" />
       <workItem from="1607107164935" duration="3556000" />
       <workItem from="1607128004508" duration="4663000" />
-      <workItem from="1607179053161" duration="2789000" />
+      <workItem from="1607179053161" duration="3147000" />
+      <workItem from="1607188912538" duration="9000" />
+      <workItem from="1607189206739" duration="1771000" />
     </task>
     <servers />
   </component>
