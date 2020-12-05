@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     const float PULL_FORCE = 0.1f;
     const float PULL_MAX_SPEED = 20f;
     const float ESCAPE_DRAG_MULT = 0.1f;
+    const float FIRE_RANGE = 5;
 
     [SerializeField]private WeaponSway gunSway;
 
@@ -62,7 +63,7 @@ public class Player : MonoBehaviour
         // GravGun inputs
         if (Input.GetMouseButtonDown(0) && launch_cd == 0)
         {
-            launch();
+            fire();
         }
         if (Input.GetMouseButton(1) && (held_object == null) && grab_cd == 0)
         {
@@ -223,34 +224,46 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void launch()
+    private void fire()
     {
-        grab_cd = GRAB_CD;
-        launch_cd = LAUNCH_CD;
         // Throw the held object
-        if(held_object != null)
+        if (held_object != null)
         {
-            held_object.useGravity = true;
-            held_object.velocity *= 0;
-
-            Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
-            held_object.AddForce(dir, ForceMode.Impulse);
-            held_object = null;
-            Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
-            return;
-        }
-        // Punt the object in front
-        RaycastHit hit;
-        if (Physics.Raycast(playerView.position, playerView.forward, out hit, 100.0f))
-        {
-            Debug.DrawRay(playerView.position, playerView.forward * 100.0f, Color.white, 1);
-            Rigidbody other = hit.collider.gameObject.GetComponent<Rigidbody>();
-            if (other)
+            float diff = (held_object.position - playerView.position).magnitude;
+            if(diff < FIRE_RANGE)
             {
+                held_object.useGravity = true;
+                held_object.velocity *= 0;
+
                 Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
-                other.AddForceAtPosition(dir, hit.point, ForceMode.Impulse);
+                held_object.AddForce(dir, ForceMode.Impulse);
+                held_object = null;
+                Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
+                // set the timers
+                grab_cd = GRAB_CD;
+                launch_cd = LAUNCH_CD;
             }
         }
+        // else Punt the object in front
+        else
+        {
+            RaycastHit hit;
+            Debug.DrawRay(playerView.position, playerView.forward * FIRE_RANGE, Color.yellow, 1);
+            if (Physics.Raycast(playerView.position, playerView.forward, out hit, FIRE_RANGE))
+            {
+                Rigidbody other = hit.collider.gameObject.GetComponent<Rigidbody>();
+                if (other)
+                {
+                    Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
+                    other.AddForceAtPosition(dir, hit.point, ForceMode.Impulse);
+                    // set the timers
+                    grab_cd = GRAB_CD;
+                    launch_cd = LAUNCH_CD;
+                }
+            }
+        }
+
+        // TODO: make the launch force inversely proportional to dist
     }
 
     public bool hasHeldObject()
