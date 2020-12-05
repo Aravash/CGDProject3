@@ -8,9 +8,10 @@ public class WrappingHandler : MonoBehaviour
     {
         // Add wrapping around object
         GameObject wrapping = Instantiate(Resources.Load("Wrapping"), transform) as GameObject;
+        wrapping.name = "Wrapping";
 
         // Resize wrapping
-        Collider transCol = transform.transform.Find("Mesh").GetComponent<Collider>();
+        Collider transCol = transform.transform.GetComponent<Collider>();
         Collider wrapCol = wrapping.transform.Find("Mesh").GetComponent<Collider>();
         
         float xDif = transCol.bounds.size.x - wrapCol.bounds.size.x;
@@ -27,10 +28,20 @@ public class WrappingHandler : MonoBehaviour
         if (ratioZ > highest) highest = ratioZ;
 
         wrapping.transform.localScale = new Vector3(highest, highest, highest);
+
+        wrapCol.enabled = false;
     }
     void Update()
     {
         //If hit against wall with force:
-        //shread wrapping (remove mesh layer, create pop particles, etc.) & remove this script
+        //Test code
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("P pressed");
+            //shread wrapping (remove mesh layer, create pop particles, etc.) & remove this script
+
+            Destroy(transform.Find("Wrapping").gameObject);
+            Destroy(this);
+        }
     }
 }
