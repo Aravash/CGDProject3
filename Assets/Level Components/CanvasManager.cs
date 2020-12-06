@@ -28,12 +28,14 @@ public class CanvasManager : MonoBehaviour
     public static void loadGame()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         SceneManager.LoadScene("GameScene");
     }
 
     public static void loadMenu()
     {
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene("MainMenu");
     }
 }
