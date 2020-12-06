@@ -66,12 +66,14 @@ public class Chute : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("object collided with");
         Destroy(other.gameObject, 2);
 
         // No points gained or lost from incinerating an object
         if (incinerator)
+        {
+            Debug.Log("Incinerated!");
             return;
+        }
 
         // classify object
         if (other.tag == "GOOD")
