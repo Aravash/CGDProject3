@@ -17,7 +17,6 @@
           <e p="WrappingHandler.cs" t="Include" />
         </e>
         <e p="Player" t="Include">
-          <e p="CPMA.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="UIWeapon" t="Include">
             <e p="renderDepthTexture.cs" t="Include" />
