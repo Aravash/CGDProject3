@@ -186,7 +186,8 @@ public class Player : MonoBehaviour
     private void grab()
     {
         RaycastHit hit;
-        if (Physics.Raycast(playerView.position, playerView.forward, out hit, 100.0f))
+        Ray ray = new Ray(playerView.position, playerView.forward);
+        if (Physics.Raycast(ray, out hit, 100.0f, 1))
         {
             Debug.DrawRay(playerView.position, playerView.forward * 100.0f, Color.white, 1);
 
@@ -258,8 +259,9 @@ public class Player : MonoBehaviour
         else
         {
             RaycastHit hit;
+            Ray ray = new Ray(playerView.position, playerView.forward);
             Debug.DrawRay(playerView.position, playerView.forward * FIRE_RANGE, Color.yellow, 1);
-            if (Physics.Raycast(playerView.position, playerView.forward, out hit, FIRE_RANGE))
+            if (Physics.Raycast(ray, out hit, FIRE_RANGE, 1))
             {
                 Rigidbody other = hit.collider.gameObject.GetComponent<Rigidbody>();
                 if (other)
