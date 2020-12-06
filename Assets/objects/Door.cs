@@ -21,7 +21,7 @@ public class Door : MonoBehaviour
     {
         if (isOpen)
         {
-            if(transform.rotation.y <= 90)
+            if(hinge.transform.rotation.y <= 150)
             {
                 hinge.transform.Rotate(0, Time.deltaTime * hingeSpeed, 0);
             }
