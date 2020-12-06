@@ -98,7 +98,6 @@ public class ObjectCreator : MonoBehaviour
         if(wave_size == 0)
         {
             wave_size = Random.Range(1, WAVE_SIZE_MAX);
-            Debug.Log("Start Wave! size " + wave_size);
         }
 
         // Spawn tick
@@ -112,7 +111,6 @@ public class ObjectCreator : MonoBehaviour
             {
                 // Set the timer for a new wave
                 wave_timer = gaussDistribution(AVRG_WAVE_TMR);
-                Debug.Log("End Wave!  timer " + wave_timer);
             }
             else
             {

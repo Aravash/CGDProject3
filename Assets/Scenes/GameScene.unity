@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd72f1a6a71909b49a7b70a8cf6bf3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desired_type: 3
+  desired_type: 1
   GoodGain: 4
   WrongColourLoss: 2
   BadLoss: 2
@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd72f1a6a71909b49a7b70a8cf6bf3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desired_type: 6
+  desired_type: 4
   GoodGain: 2
   WrongColourLoss: 3
   BadLoss: 5
@@ -1815,7 +1815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd72f1a6a71909b49a7b70a8cf6bf3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desired_type: 5
+  desired_type: 3
   GoodGain: 2
   WrongColourLoss: 3
   BadLoss: 5
@@ -3394,7 +3394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd72f1a6a71909b49a7b70a8cf6bf3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desired_type: 8
+  desired_type: 5
   GoodGain: 4
   WrongColourLoss: 2
   BadLoss: 2
@@ -4619,7 +4619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd72f1a6a71909b49a7b70a8cf6bf3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desired_type: 2
+  desired_type: 0
   GoodGain: 2
   WrongColourLoss: 3
   BadLoss: 5
@@ -6864,7 +6864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd72f1a6a71909b49a7b70a8cf6bf3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desired_type: 4
+  desired_type: 2
   GoodGain: 2
   WrongColourLoss: 3
   BadLoss: 5
