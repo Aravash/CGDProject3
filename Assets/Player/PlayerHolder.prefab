@@ -3878,7 +3878,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 7990
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -8832,7 +8832,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 4096
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -10197,6 +10197,8 @@ MonoBehaviour:
   recoilOffset: 0
   recoilForce: 0.3
   gunSway: {fileID: 6778800389717569798}
+  burst: {fileID: 0}
+  punt: {fileID: 0}
 --- !u!1 &3367589180185264408
 GameObject:
   m_ObjectHideFlags: 0
