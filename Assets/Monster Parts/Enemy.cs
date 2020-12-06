@@ -38,6 +38,8 @@ public class Enemy : MonoBehaviour
     float idle_timer = IDLE_TIME;
     const float IDLE_TIME = 2;
 
+    bool doonce;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +67,7 @@ public class Enemy : MonoBehaviour
         waitTime = Random.Range(minTime, maxTime);
         endChosen = false;
         yeeting = false;
+        doonce = false;
     }
 
     // Update is called once per frame
@@ -97,10 +100,12 @@ public class Enemy : MonoBehaviour
         {
             idle_timer -= Time.deltaTime;
         }
-        if (idle_timer <= 0)
+        if (idle_timer <= 0 && !doonce)
         {
-            Debug.Log("I AWAKEN!!!!");
+            //Debug.Log("I AWAKEN!!!!");
+            doonce = true;
             ActivateEnemy();
+            
         }
 
         // abort here if we aren't active
@@ -348,11 +353,12 @@ public class Enemy : MonoBehaviour
     void YeetSelf()
     {
         yeeting = true;
-        transform.rotation = ep.rotation;
         agent.enabled = false;
+        transform.rotation = ep.rotation;
+        
         rb.isKinematic = false;
         rb.velocity = transform.forward * 2  + new Vector3(0, 5, 0);
-        //Debug.Log("Time to die");
+        Debug.Log("Time to die " + gameObject);
     }
 
 }
