@@ -22,7 +22,8 @@ public class ObjectCreator : MonoBehaviour
     const float SPAWN_TMR_MAX = 0.7f;
     const float SPAWN_TMR_MIN = 0.3f;
     int wave_size = 0;
-    const int WAVE_SIZE_MAX = 5;
+    [SerializeField] int WAVE_SIZE_MAX = 5;
+    [SerializeField] int ENEMY_CHANCE_RECIPROCAL = 6;
 
     void Start()
     {
@@ -35,11 +36,11 @@ public class ObjectCreator : MonoBehaviour
         //Test code
         if (Input.GetKeyDown(KeyCode.K))
         {
-            BuildObject(ObjectTypes.REGULAR, false);
+            BuildObject(false);
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            BuildObject(ObjectTypes.REGULAR, true);
+            BuildObject(true);
         }
         // Automatic waves
         wave_timer -= Time.deltaTime;
@@ -49,40 +50,33 @@ public class ObjectCreator : MonoBehaviour
         }
     }
 
-    public void BuildObject(ObjectTypes type = ObjectTypes.REGULAR, bool wrapped = false)
+    public void BuildObject(bool wrapped = false)
     {
         Vector3 pos = new Vector3(Random.Range(col.bounds.min.x, col.bounds.max.x),
                                   transform.position.y,
                                   Random.Range(col.bounds.min.z, col.bounds.max.z));
 
         GameObject newObj = gameObject;
+        newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
 
-        switch (type)
+        // Only convert BAD props to enemies
+        if(newObj.tag == "BAD")
         {
-            case (ObjectTypes.REGULAR):
-                {
-                    newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
-                    break;
-                }
-            case (ObjectTypes.TRASH):
-                {
-                    //Currently same as regular
-                    newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
-                    break;
-                }
-            case (ObjectTypes.ENEMY):
-                {
-                    //Currently same as regular
-                    newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
-                    break;
-                }
+            if(Random.Range(0, ENEMY_CHANCE_RECIPROCAL) == 0)
+            {
+                // Attach enemy script
+                newObj.AddComponent<Enemy>();
+                Debug.Log("Enemy spawned!");
+            }
         }
 
+        // @Conrad, this is all yours
         if (wrapped)
         {
             newObj.AddComponent<WrappingHandler>();
         }
 
+        // Set Colour
         Chute.col_ids colour = (Chute.col_ids)Random.Range(0, 6); // int rand is maximally exclusive
         newObj.GetComponent<Renderer>().material.color = Chute.getColour(colour);
     }

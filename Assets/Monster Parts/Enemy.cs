@@ -20,22 +20,54 @@ public class Enemy : MonoBehaviour
     Vector3 moveVector;
 
     public bool fixRot;
-    public Transform move;
+    Transform movingTarget;
+
+    Transform target;
+
+    GameObject[] endPoints;
+    float waitTime;
+    float minTime = 5.0f;
+    float maxTime = 10.0f;
+    bool endChosen;
+    Transform ep;
+
+    public bool yeeting;
 
     bool grabbed;
+
+    float idle_timer = IDLE_TIME;
+    const float IDLE_TIME = 2;
+
+    bool doonce;
 
     // Start is called before the first frame update
     void Start()
     {
-        legs = transform.Find("Legs n Eyes V2").gameObject;
-        rb = GetComponent<Rigidbody>();
-        //controller = GetComponent<CharacterController>();
-        //box = GetComponent<BoxCollider>();
-        agent = GetComponent<NavMeshAgent>();
 
+        legs = Instantiate(Resources.Load("Enemy/Legs n Eyes V2") as GameObject);
+        legs.transform.localEulerAngles = new Vector3(0, 180, 0);
+        legs.transform.parent = gameObject.transform;
+
+        agent = gameObject.AddComponent<NavMeshAgent>();
+        agent.baseOffset = 0.3f;
+        agent.height = 0.5f;
+        agent.angularSpeed = 500f;
+        agent.enabled = false;
+
+        //legs = transform.Find("Legs n Eyes V2").gameObject;
+        rb = GetComponent<Rigidbody>();
+
+        //agent = GetComponent<NavMeshAgent>();
+        movingTarget = new GameObject("target").transform;
+        target = movingTarget;
+        ChooseWanderPoint();
         fixRot = false;
         grabbed = false;
-
+        endPoints = GameObject.FindGameObjectsWithTag("EnemyWaypoints");
+        waitTime = Random.Range(minTime, maxTime);
+        endChosen = false;
+        yeeting = false;
+        doonce = false;
     }
 
     // Update is called once per frame
@@ -58,6 +90,28 @@ public class Enemy : MonoBehaviour
             Ungrab();
         }
 
+
+
+        if (rb.velocity.magnitude > 0f)
+        {
+            idle_timer = IDLE_TIME;
+        }
+        else
+        {
+            idle_timer -= Time.deltaTime;
+        }
+        if (idle_timer <= 0 && !doonce)
+        {
+            //Debug.Log("I AWAKEN!!!!");
+            doonce = true;
+            ActivateEnemy();
+            
+        }
+
+        // abort here if we aren't active
+        if (!active)
+            return;
+
         /*
         ground = controller.isGrounded;
 
@@ -74,23 +128,35 @@ public class Enemy : MonoBehaviour
 
         g.transform.position = randomPos;
         */
+        Vector3 enemyPos = new Vector3(transform.position.x, 0, transform.position.z);
+        Vector3 tar = new Vector3(target.position.x, 0, target.position.z);
 
-        if(Vector3.Distance(move.position, transform.position) < 0.25f)
+        
+
+        if(Vector3.Distance(tar, enemyPos) < 0.5f)
         {
-            Debug.Log("SDDSSF");
+            if(endChosen)
+            {
+                YeetSelf();
+            }
+            else
+            {
+                ChooseWanderPoint();
+            }
         }
-
-
     }
 
     private void FixedUpdate()
     {
-        if(active && !grabbed)
+
+        
+
+        if(active && !grabbed && !yeeting)
         {
 
-            agent.destination = move.position;
+            agent.destination = target.position;
 
-
+            waitTime -= Time.deltaTime;
 
 
             /*
@@ -126,6 +192,11 @@ public class Enemy : MonoBehaviour
         if(fixRot)
         {
             rb.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, Time.deltaTime * 500);
+        }
+
+        if(waitTime <= 0 && !endChosen)
+        {
+            ChooseEndpoint();
         }
 
     }
@@ -165,7 +236,7 @@ public class Enemy : MonoBehaviour
         
     }
 
-    void DeactivateEnemy()
+    public void DeactivateEnemy()
     {
         agent.enabled = false;
         /*
@@ -209,6 +280,7 @@ public class Enemy : MonoBehaviour
             legs.GetComponent<leg>().Flail();
             agent.enabled = false;
             rb.isKinematic = false;
+            yeeting = false;
         }
 
         
@@ -243,4 +315,50 @@ public class Enemy : MonoBehaviour
         agent.enabled = true;
         grabbed = false;
     }
+
+    void ChooseEndpoint()
+    {
+        int index = Random.Range(0, endPoints.Length);
+        ep = endPoints[index].transform;
+        target = ep;
+        endChosen = true;
+    }
+
+    void ChooseWanderPoint()
+    {
+        ///???
+        ///
+        /*
+        float walkRadius = 24;
+        Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, walkRadius, 1);
+        Vector3 finalPosition = hit.position;
+        target.position = finalPosition;
+        movingTarget.position = finalPosition;
+        */
+
+        float walkRadius = 12;
+        Vector3 newRandomPos = new Vector3 (Random.insideUnitSphere.x * walkRadius, transform.position.y, Random.insideUnitSphere.z * walkRadius);
+        NavMeshHit hit;
+        if(NavMesh.SamplePosition(newRandomPos, out hit, walkRadius, 1))
+        {
+            Vector3 finalPosition = hit.position;
+            target.position = finalPosition;
+            movingTarget.position = finalPosition;
+        }
+    }
+
+    void YeetSelf()
+    {
+        yeeting = true;
+        agent.enabled = false;
+        transform.rotation = ep.rotation;
+        
+        rb.isKinematic = false;
+        rb.velocity = transform.forward * 2  + new Vector3(0, 5, 0);
+        Debug.Log("Time to die " + gameObject);
+    }
+
 }
