@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     bool grabbed;
 
-    float idle_timer = 0;
+    float idle_timer = IDLE_TIME;
     const float IDLE_TIME = 2;
 
     // Start is called before the first frame update

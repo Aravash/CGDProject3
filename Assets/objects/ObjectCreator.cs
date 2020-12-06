@@ -66,6 +66,7 @@ public class ObjectCreator : MonoBehaviour
             {
                 // Attach enemy script
                 newObj.AddComponent<Enemy>();
+                Debug.Log("Enemy spawned!");
             }
         }
 
