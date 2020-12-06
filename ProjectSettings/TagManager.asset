@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GOOD
   - BAD
+  - EnemyWaypoints
   layers:
   - Default
   - TransparentFX

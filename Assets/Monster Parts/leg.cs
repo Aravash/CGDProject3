@@ -32,7 +32,7 @@ public class leg : MonoBehaviour
     {
         //// assign body
 
-        body = transform.parent.Find("default").gameObject;
+        body = transform.parent.gameObject;
 
 
         ////
