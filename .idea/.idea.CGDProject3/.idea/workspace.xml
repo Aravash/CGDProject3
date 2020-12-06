@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="21fb1236-1537-4a1c-b3d3-0bf31b0b605b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Mats/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Mats/Blue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Mats/Cyan.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Mats/Cyan.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Mats/Lime.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Mats/Lime.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Mats/Purple.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Mats/Purple.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Mats/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Mats/Red.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +27,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Level Components/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/scrolltex.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Astar pathfinding/Assets/Agent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../CGDProject2/Assets/menuscript/MenuManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -49,6 +47,7 @@
         <option value="$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" />
         <option value="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/Chute.cs" />
+        <option value="$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.cs" />
       </list>
     </option>
   </component>
@@ -111,6 +110,7 @@
       <workItem from="1607189206739" duration="1771000" />
       <workItem from="1607031546880" duration="4648000" />
       <workItem from="1607208560006" duration="2587000" />
+      <workItem from="1607269843959" duration="1780000" />
     </task>
     <servers />
   </component>
