@@ -82,6 +82,9 @@ public class ObjectCreator : MonoBehaviour
         {
             newObj.AddComponent<WrappingHandler>();
         }
+
+        Chute.col_ids colour = (Chute.col_ids)Random.Range(0, 6); // int rand is maximally exclusive
+        newObj.GetComponent<Renderer>().material.color = Chute.getColour(colour);
     }
 
     private void OnDrawGizmos()
