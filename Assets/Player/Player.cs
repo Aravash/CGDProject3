@@ -231,6 +231,7 @@ public class Player : MonoBehaviour
 
     private void fire()
     {
+        gunAudio.playFire();
         // Throw the held object
         if (held_object != null)
         {
