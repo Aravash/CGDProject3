@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour
 
     bool grabbed;
 
+    float idle_timer = 0;
+    const float IDLE_TIME = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,7 +83,19 @@ public class Enemy : MonoBehaviour
             Debug.Log("SDDSSF");
         }
 
-
+        if (rb.velocity.magnitude > 0.01f)
+        {
+            idle_timer = IDLE_TIME;
+        }
+        else
+        {
+            idle_timer -= Time.deltaTime;
+        }
+        if (idle_timer <= 0)
+        {
+            Debug.Log("I AWAKEN!!!!");
+            ActivateEnemy();
+        }
     }
 
     private void FixedUpdate()
