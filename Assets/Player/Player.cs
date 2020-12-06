@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] float yMouseSensitivity = 30.0f;
     private float rotX = 0.0f;
     private float rotY = 0.0f;
+    [SerializeField] private float recoilOffset;
+    [SerializeField] private float recoilForce = .3f;
 
     const float MV_ACCEL = 2.5f;
     const float MV_FRICTION = 0.5f;
@@ -171,13 +173,13 @@ public class Player : MonoBehaviour
         rotY += changeY;
         // Clamp the X rotation
         if (rotX < -90)
-            rotX = -90;
+            rotX = -89;
         else if (rotX > 90)
-            rotX = 90;
+            rotX = 89;
         transform.rotation = Quaternion.Euler(0, rotY, 0); // Rotates the collider
-        playerView.rotation = Quaternion.Euler(rotX, rotY, 0); // Rotates the camera
+        playerView.rotation = Quaternion.Euler(rotX-recoilOffset, rotY, 0); // Rotates the camera
+        recoilOffset = Mathf.Lerp(recoilOffset, 0, Time.deltaTime * 2f);
         gunSway.gunUpdate(new Vector3(changeY, changeX, 0));
-
     }
 
     // Gravity gun
@@ -238,6 +240,7 @@ public class Player : MonoBehaviour
                 Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
                 held_object.AddForce(dir, ForceMode.Impulse);
                 held_object = null;
+                recoilOffset += recoilForce;
                 Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
                 // set the timers
                 grab_cd = GRAB_CD;
@@ -259,6 +262,7 @@ public class Player : MonoBehaviour
                     // set the timers
                     grab_cd = GRAB_CD;
                     launch_cd = LAUNCH_CD;
+                    recoilOffset += recoilForce;
                 }
             }
         }
