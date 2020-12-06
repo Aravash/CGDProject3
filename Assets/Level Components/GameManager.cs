@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private float scoreChangeSpeed = 2.0f;
 
     [SerializeField] private Image mask;
+    [SerializeField] private Door door;
 
     private static GameManager instance;
 
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
         if (currentVisualScore >= maxScore)
         {
             CanvasManager.ShowWin();
+            door.open();
             Destroy(this); // dont need gameManager when game is over
         }
         else if (currentVisualScore <= 0)
