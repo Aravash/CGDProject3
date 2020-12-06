@@ -197,9 +197,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
-  hasTriggered: 0
-  isQuitting: 0
-  isOneshot: 0
 --- !u!65 &231067350
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -450,8 +447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidBody: {fileID: 0}
-  rigidBody2D: {fileID: 0}
   attenuationObject: {fileID: 0}
   ListenerNumber: -1
 --- !u!850595691 &996209918
@@ -768,6 +763,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flop: 0
-  flip: 0
   currentTerrain: 0
   FMODFootstepEvent: event:/Player/Footstep
