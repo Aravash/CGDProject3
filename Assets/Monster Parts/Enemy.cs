@@ -1,36 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
     GameObject legs;
     Rigidbody rb;
 
-    public GameObject Arena;
-    Vector3 randomPos;
-    GameObject g;
+    //public GameObject Arena;
+    //Vector3 randomPos;
 
     public bool active;
-    CharacterController controller;
-    BoxCollider box;
+    //CharacterController controller;
+    //BoxCollider box;
+    //NavMesh navmesh;
+    NavMeshAgent agent;
 
     Vector3 moveVector;
 
-    public bool ground;
+    public bool fixRot;
+    public Transform move;
+
+    bool grabbed;
 
     // Start is called before the first frame update
     void Start()
     {
         legs = transform.Find("Legs n Eyes V2").gameObject;
         rb = GetComponent<Rigidbody>();
-        controller = GetComponent<CharacterController>();
-        box = GetComponent<BoxCollider>();
+        //controller = GetComponent<CharacterController>();
+        //box = GetComponent<BoxCollider>();
+        agent = GetComponent<NavMeshAgent>();
 
+        fixRot = false;
+        grabbed = false;
 
-        g = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        g.transform.localScale = Vector3.one * 0.25f;
-        g.GetComponent<SphereCollider>().enabled = false;
     }
 
     // Update is called once per frame
@@ -44,7 +49,16 @@ public class Enemy : MonoBehaviour
         {
             DeactivateEnemy();
         }
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            Grab();
+        }
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            Ungrab();
+        }
 
+        /*
         ground = controller.isGrounded;
 
         Vector3 targPos = new Vector3(randomPos.x, 0, randomPos.z);
@@ -59,13 +73,27 @@ public class Enemy : MonoBehaviour
         }
 
         g.transform.position = randomPos;
+        */
+
+        if(Vector3.Distance(move.position, transform.position) < 0.25f)
+        {
+            Debug.Log("SDDSSF");
+        }
+
 
     }
 
     private void FixedUpdate()
     {
-        if(active)
+        if(active && !grabbed)
         {
+
+            agent.destination = move.position;
+
+
+
+
+            /*
             if(controller != null)
             {
                 if(controller.isGrounded == false)
@@ -84,6 +112,7 @@ public class Enemy : MonoBehaviour
                 //transform.rotation = Quaternion.LookRotation(gogo);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(gogo), 1000 * Time.deltaTime);
             }
+            */
             /*
             Vector3 dir = randomPos - transform.position;
             Vector3 asdf = new Vector3(randomPos.x, transform.position.y, randomPos.z);
@@ -94,51 +123,124 @@ public class Enemy : MonoBehaviour
 
         }
 
+        if(fixRot)
+        {
+            rb.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, Time.deltaTime * 500);
+        }
+
     }
 
     void ActivateEnemy()
-    {/*
-        rb.AddForce(0, 150, 0);
-        rb.rotation = Quaternion.identity;
-        rb.constraints = RigidbodyConstraints.FreezeRotationX;
-        rb.constraints = RigidbodyConstraints.FreezeRotationZ;
-        */
+    {
+        // rb.AddForce(0, 150, 0);
+        // rb.rotation = Quaternion.identity;
+        //rb.constraints = RigidbodyConstraints.FreezeRotationX;
+        //rb.constraints = RigidbodyConstraints.FreezeRotationZ;
+        // rb.isKinematic = true;
 
-        controller.enabled = true;
-        box.enabled = false;
-        if (rb != null)
-        {
-            Destroy(rb);
-        }
+        //agent.enabled = true;
+
+        /*  controller.enabled = true;
+          box.enabled = false;
+          if (rb != null)
+          {
+              Destroy(rb);
+          }
+          */
 
         //jump
-        moveVector.y = Vector3.up.y * 3;
-        transform.rotation = Quaternion.identity;
+        // moveVector.y = Vector3.up.y * 3;
+        // transform.rotation = Quaternion.identity;
 
 
-        legs.GetComponent<leg>().ActivateLeg();
+        //legs.GetComponent<leg>().ActivateLeg();
 
-        Collider arena = Arena.GetComponent<Collider>();
-        randomPos = new Vector3(Random.Range(arena.bounds.min.x, arena.bounds.max.x),
-        transform.position.y,
-        Random.Range(arena.bounds.min.z, arena.bounds.max.z));
+        /* Collider arena = Arena.GetComponent<Collider>();
+         randomPos = new Vector3(Random.Range(arena.bounds.min.x, arena.bounds.max.x),
+         transform.position.y,
+         Random.Range(arena.bounds.min.z, arena.bounds.max.z)); */
 
+        StartCoroutine("Activation");
 
-        active = true;
+        
     }
 
     void DeactivateEnemy()
     {
+        agent.enabled = false;
+        /*
         box.enabled = true;
         controller.enabled = false;
         if(rb == null)
         {
             rb = this.gameObject.AddComponent<Rigidbody>();
         }
+        */
 
-        //rb.constraints = RigidbodyConstraints.None;
-       // rb.constraints = RigidbodyConstraints.FreezeRotationZ;
+        // rb.constraints = RigidbodyConstraints.None;
+        // rb.constraints = RigidbodyConstraints.FreezeRotationZ;
+        rb.isKinematic = false;
         legs.GetComponent<leg>().DeactivateLeg();
         active = false;
+    }
+
+    IEnumerator Activation()
+    {
+        rb.AddForce(0, 150, 0);
+        fixRot = true;
+        legs.GetComponent<leg>().ActivateLeg();
+        yield return new WaitForSeconds(0.25f);
+        fixRot = false;
+        rb.rotation = Quaternion.identity;
+        
+        yield return new WaitForSeconds(0.3f);
+        rb.isKinematic = true;
+
+        agent.enabled = true;
+        active = true;
+    }
+
+    public void Grab()
+    {
+        if(active && !grabbed)
+        {
+            //readd rb, remove nav, wait, reactivate????
+            grabbed = true;
+            legs.GetComponent<leg>().Flail();
+            agent.enabled = false;
+            rb.isKinematic = false;
+        }
+
+        
+    }
+
+    public void Ungrab()
+    {
+        //maybe wait 5s?
+        if(grabbed)
+        {
+            StartCoroutine("Wait5s");
+        }
+
+    }
+
+    IEnumerator Wait5s()
+    {
+        yield return new WaitForSeconds(5);
+        
+        legs.GetComponent<leg>().UnFlail();
+
+        rb.AddForce(0, 150, 0);
+        fixRot = true;
+        //legs.GetComponent<leg>().ActivateLeg();
+        yield return new WaitForSeconds(0.25f);
+        fixRot = false;
+        rb.rotation = Quaternion.identity;
+
+        yield return new WaitForSeconds(0.3f);
+        rb.isKinematic = true;
+
+        agent.enabled = true;
+        grabbed = false;
     }
 }

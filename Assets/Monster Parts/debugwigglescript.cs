@@ -20,7 +20,7 @@ public class debugwigglescript : MonoBehaviour
         if(!active)
         {
             legs.GetComponent<leg>().ActivateLeg();
-            legs.GetComponent<leg>().DebugFlail();
+            legs.GetComponent<leg>().Flail();
             active = true;
         }
     }

@@ -90,11 +90,19 @@ public class leg : MonoBehaviour
         e.SetBool("Active", false);
     }
 
-    public void DebugFlail()
+    public void Flail()
     {
         a.SetBool("Flail", true);
         b.SetBool("Flail", true);
         c.SetBool("Flail", true);
         d.SetBool("Flail", true);
+    }
+
+    public void UnFlail()
+    {
+        a.SetBool("Flail", false);
+        b.SetBool("Flail", false);
+        c.SetBool("Flail", false);
+        d.SetBool("Flail", false);
     }
 }
