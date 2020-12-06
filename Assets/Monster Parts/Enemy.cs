@@ -87,6 +87,26 @@ public class Enemy : MonoBehaviour
             Ungrab();
         }
 
+
+
+        if (rb.velocity.magnitude > 0f)
+        {
+            idle_timer = IDLE_TIME;
+        }
+        else
+        {
+            idle_timer -= Time.deltaTime;
+        }
+        if (idle_timer <= 0)
+        {
+            Debug.Log("I AWAKEN!!!!");
+            ActivateEnemy();
+        }
+
+        // abort here if we aren't active
+        if (!active)
+            return;
+
         /*
         ground = controller.isGrounded;
 
@@ -110,10 +130,6 @@ public class Enemy : MonoBehaviour
 
         if(Vector3.Distance(tar, enemyPos) < 0.5f)
         {
-
-            
-            
-
             if(endChosen)
             {
                 YeetSelf();
@@ -122,20 +138,6 @@ public class Enemy : MonoBehaviour
             {
                 ChooseWanderPoint();
             }
-        }
-
-        if (rb.velocity.magnitude > 0.01f)
-        {
-            idle_timer = IDLE_TIME;
-        }
-        else
-        {
-            idle_timer -= Time.deltaTime;
-        }
-        if (idle_timer <= 0)
-        {
-            Debug.Log("I AWAKEN!!!!");
-            ActivateEnemy();
         }
     }
 
@@ -335,10 +337,12 @@ public class Enemy : MonoBehaviour
         float walkRadius = 12;
         Vector3 newRandomPos = new Vector3 (Random.insideUnitSphere.x * walkRadius, transform.position.y, Random.insideUnitSphere.z * walkRadius);
         NavMeshHit hit;
-        NavMesh.SamplePosition(newRandomPos, out hit, walkRadius, 1);
-        Vector3 finalPosition = hit.position;
-        target.position = finalPosition;
-        movingTarget.position = finalPosition;
+        if(NavMesh.SamplePosition(newRandomPos, out hit, walkRadius, 1))
+        {
+            Vector3 finalPosition = hit.position;
+            target.position = finalPosition;
+            movingTarget.position = finalPosition;
+        }
     }
 
     void YeetSelf()
