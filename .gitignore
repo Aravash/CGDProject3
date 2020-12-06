@@ -63,8 +63,10 @@ crashlytics-build.properties
 fmod.log
 fmod_editor.log
 
-/FMOD/*/.cache/
-/FMOD/*/.user/
-/FMOD/*/.unsaved/
-/FMOD/*/.restore/
+/FMOD/**/.cache/
+/FMOD/**/.user/
+/FMOD/**/.unsaved/
+/FMOD/**/.restore/
 
+fmod_editor.log
+fmod_editor.log
