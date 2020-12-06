@@ -95,6 +95,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Fireworks
   - Gravity Gun
   - Objects
   BanksToLoad: []
