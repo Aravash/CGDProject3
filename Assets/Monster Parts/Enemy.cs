@@ -236,7 +236,7 @@ public class Enemy : MonoBehaviour
         
     }
 
-    void DeactivateEnemy()
+    public void DeactivateEnemy()
     {
         agent.enabled = false;
         /*
