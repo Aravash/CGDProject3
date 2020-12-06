@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 843597744266984119}
   m_Layer: 0
   m_Name: beret
-  m_TagString: Untagged
+  m_TagString: BAD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
