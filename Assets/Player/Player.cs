@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     const float FIRE_RANGE = 5;
 
     [SerializeField]private WeaponSway gunSway;
+    [SerializeField]private ParticleSystem burst;
+    [SerializeField]private ParticleSystem punt;
 
     // GravGun timers
     float grab_cd = 0;
@@ -44,9 +46,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Hide the cursor
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; //delete this
 
         // Put the camera inside the capsule collider
         playerView = Camera.main.transform;
@@ -241,6 +241,7 @@ public class Player : MonoBehaviour
                 held_object.AddForce(dir, ForceMode.Impulse);
                 held_object = null;
                 recoilOffset += recoilForce;
+                burst.Play();
                 Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
                 // set the timers
                 grab_cd = GRAB_CD;
@@ -263,6 +264,7 @@ public class Player : MonoBehaviour
                     grab_cd = GRAB_CD;
                     launch_cd = LAUNCH_CD;
                     recoilOffset += recoilForce;
+                    punt.Play();
                 }
             }
         }

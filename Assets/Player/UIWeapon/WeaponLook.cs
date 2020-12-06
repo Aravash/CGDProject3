@@ -12,7 +12,7 @@ public class WeaponLook : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private Transform muzzleSpot;
     [SerializeField] private Transform muzzleSpot2;
-    [SerializeField] private Transform spot; 
+    [SerializeField] private Transform spot;
     private LineRenderer _line;
 
     private void Start()
