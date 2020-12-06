@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{5aa66a32-d325-4bfc-a061-22901eed448a}">
+		<property name="assetPath">
+			<value>Energy - force_field_9_start.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.8010104166666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d1893105-2114-434d-8406-7b79d7c55774}</destination>
+		</relationship>
+	</object>
+</objects>

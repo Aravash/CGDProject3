@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{6aa7dd69-5688-4228-869e-b7737e09d5b4}">
+		<property name="assetPath">
+			<value>Energy - force_field_5_stop - Trimmed.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.5928125</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d1893105-2114-434d-8406-7b79d7c55774}</destination>
+		</relationship>
+	</object>
+</objects>
