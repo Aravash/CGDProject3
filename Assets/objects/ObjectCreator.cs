@@ -24,6 +24,9 @@ public class ObjectCreator : MonoBehaviour
     int wave_size = 0;
     const int WAVE_SIZE_MAX = 5;
 
+    // Audio Event to use
+    [SerializeField] private FMODUnity.StudioEventEmitter eventEmitter;
+
     void Start()
     {
         models = Resources.LoadAll<GameObject>("objects");
@@ -82,6 +85,13 @@ public class ObjectCreator : MonoBehaviour
         {
             newObj.AddComponent<WrappingHandler>();
         }
+
+        // Add Audio Event
+        newObj.AddComponent<FMODUnity.StudioEventEmitter>();
+        var tmp = newObj.GetComponent<FMODUnity.StudioEventEmitter>();
+        tmp.Event = eventEmitter.Event;
+        tmp.CollisionTag = eventEmitter.CollisionTag;
+        tmp.PlayEvent = eventEmitter.PlayEvent;
 
         Chute.col_ids colour = (Chute.col_ids)Random.Range(0, 6); // int rand is maximally exclusive
         newObj.GetComponent<Renderer>().material.color = Chute.getColour(colour);

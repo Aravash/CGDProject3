@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     const float FIRE_RANGE = 5;
 
     [SerializeField]private WeaponSway gunSway;
+    [SerializeField] private GunAudio gunAudio;
 
     // GravGun timers
     float grab_cd = 0;
@@ -183,6 +184,7 @@ public class Player : MonoBehaviour
     // Gravity gun
     private void grab()
     {
+        gunAudio.playGrab();
         RaycastHit hit;
         if (Physics.Raycast(playerView.position, playerView.forward, out hit, 100.0f))
         {
@@ -194,11 +196,14 @@ public class Player : MonoBehaviour
                 held_object.useGravity = false;
             }
         }
+
+        
     }
 
     private void drop()
     {
-        if(held_object)
+        gunAudio.playDrop();
+        if (held_object)
             held_object.useGravity = true;
         held_object = null;
     }
@@ -242,6 +247,9 @@ public class Player : MonoBehaviour
                 // set the timers
                 grab_cd = GRAB_CD;
                 launch_cd = LAUNCH_CD;
+
+                // Play Sound
+                gunAudio.playFire();
             }
         }
         // else Punt the object in front
@@ -259,6 +267,9 @@ public class Player : MonoBehaviour
                     // set the timers
                     grab_cd = GRAB_CD;
                     launch_cd = LAUNCH_CD;
+
+                    // Play Sound
+                    gunAudio.playFire();
                 }
             }
         }
