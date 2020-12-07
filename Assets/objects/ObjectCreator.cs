@@ -24,11 +24,14 @@ public class ObjectCreator : MonoBehaviour
     int wave_size = 0;
     [SerializeField] int WAVE_SIZE_MAX = 5;
     [SerializeField] int ENEMY_CHANCE_RECIPROCAL = 6;
+    [SerializeField] int WRAPPED_CHANCE_RECIPROCAL;
 
     void Start()
     {
         models = Resources.LoadAll<GameObject>("objects");
         col = GetComponent<BoxCollider>();
+
+        WRAPPED_CHANCE_RECIPROCAL = 4;
     }
 
     private void Update()
@@ -36,12 +39,16 @@ public class ObjectCreator : MonoBehaviour
         //Test code
         if (Input.GetKeyDown(KeyCode.K))
         {
-            BuildObject(false);
+            BuildObject();
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            BuildObject(true);
+            int currentChance = WRAPPED_CHANCE_RECIPROCAL;
+            WRAPPED_CHANCE_RECIPROCAL = 0;
+            BuildObject();
+            WRAPPED_CHANCE_RECIPROCAL = currentChance;
         }
+
         // Automatic waves
         wave_timer -= Time.deltaTime;
         if(wave_timer <= 0)
@@ -50,7 +57,7 @@ public class ObjectCreator : MonoBehaviour
         }
     }
 
-    public void BuildObject(bool wrapped = false)
+    public void BuildObject()
     {
         Vector3 pos = new Vector3(Random.Range(col.bounds.min.x, col.bounds.max.x),
                                   transform.position.y,
@@ -73,12 +80,15 @@ public class ObjectCreator : MonoBehaviour
         // Set Colour
         Chute.col_ids colour = (Chute.col_ids)Random.Range(0, 6); // int rand is maximally exclusive
         newObj.GetComponent<Renderer>().material.color = Chute.getColour(colour);
-        
+
         // Add wrapper if requested
-        if (wrapped)
+        if (newObj.tag == "GOOD" && WRAPPED_CHANCE_RECIPROCAL >= 0)
         {
-            newObj.AddComponent<WrappingHandler>();
-            newObj.GetComponent<WrappingHandler>().SetColour(colour);
+            if (Random.Range(0, WRAPPED_CHANCE_RECIPROCAL) == 0)
+            {
+                newObj.AddComponent<WrappingHandler>();
+                newObj.GetComponent<WrappingHandler>().SetColour(colour);
+            }
         }
     }
 

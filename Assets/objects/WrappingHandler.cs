@@ -74,17 +74,6 @@ public class WrappingHandler : MonoBehaviour
         WrapRenderer.material = mat;
     }
 
-    void Update()
-    {
-        //Test code
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("P pressed");
-            
-            PopWrapping();
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         // Detecting hard impact

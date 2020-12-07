@@ -42,7 +42,8 @@ public class Chute : MonoBehaviour
         // classify object
         if (other.tag == "GOOD")
         {
-            if (other.GetComponent<Renderer>().material.color == my_color)
+            if (other.GetComponent<Renderer>().material.color == my_color &&
+                !other.GetComponent<WrappingHandler>())
             {
                 Debug.Log("CORRECT! GAIN POINTS!!"); // gain 2
                 GameManager.ChangeScore(GoodGain);
