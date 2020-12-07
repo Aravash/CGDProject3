@@ -40,6 +40,11 @@ public class GameAudioManager : MonoBehaviour
     [SerializeField]
     [FMODUnity.EventRef]
     public string FMODIncinerate = null;
+    [SerializeField]
+    [FMODUnity.EventRef]
+    public string FMODEnemyFootstep = null;
+
+
     #endregion
     // Start is called before the first frame update
     void Start()
@@ -60,6 +65,11 @@ public class GameAudioManager : MonoBehaviour
         return Vector3.zero;
     }
 
+
+    public static void EnemyFootstep(Vector3 pos)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(_instance.FMODEnemyFootstep, pos);
+    }
     public static void Incinerate(Vector3 pos)
     {
         FMODUnity.RuntimeManager.PlayOneShot(_instance.FMODIncinerate, pos);

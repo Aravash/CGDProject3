@@ -19,5 +19,6 @@ public class StompNoise : MonoBehaviour
     void Stomp()
     {
         //IDK how u make them sounds but it goes here
+        GameAudioManager.EnemyFootstep(this.transform.position);
     }
 }

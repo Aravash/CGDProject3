@@ -26,6 +26,9 @@ public class ObjectCreator : MonoBehaviour
     [SerializeField] int ENEMY_CHANCE_RECIPROCAL = 6;
     [SerializeField] int WRAPPED_CHANCE_RECIPROCAL;
 
+    // Audio Event to use
+    [SerializeField] private FMODUnity.StudioEventEmitter eventEmitter;
+
     void Start()
     {
         models = Resources.LoadAll<GameObject>("objects");
@@ -90,6 +93,14 @@ public class ObjectCreator : MonoBehaviour
                 newObj.GetComponent<WrappingHandler>().SetColour(colour);
             }
         }
+
+        // Attach Audio Effects
+        newObj.AddComponent<FMODUnity.StudioEventEmitter>();
+        var tmp = newObj.GetComponent<FMODUnity.StudioEventEmitter>();
+        tmp.Event = eventEmitter.Event;
+        tmp.CollisionTag = eventEmitter.CollisionTag;
+        tmp.PlayEvent = eventEmitter.PlayEvent;
+
     }
 
     private void OnDrawGizmos()

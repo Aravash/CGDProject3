@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     const float FIRE_RANGE = 5;
 
     [SerializeField]private WeaponSway gunSway;
+    [SerializeField] private GunAudio gunAudio;
     [SerializeField]private ParticleSystem burst;
     [SerializeField]private ParticleSystem punt;
 
@@ -185,6 +186,7 @@ public class Player : MonoBehaviour
     // Gravity gun
     private void grab()
     {
+        gunAudio.playGrab();
         RaycastHit hit;
         Ray ray = new Ray(playerView.position, playerView.forward);
         if (Physics.Raycast(ray, out hit, 100.0f, 1))
@@ -207,7 +209,8 @@ public class Player : MonoBehaviour
 
     private void drop()
     {
-        if(held_object)
+        gunAudio.playDrop();
+        if (held_object)
             held_object.useGravity = true;
         held_object = null;
     }
@@ -282,6 +285,7 @@ public class Player : MonoBehaviour
             }
         }
 
+        gunAudio.playFire();
         // TODO: make the launch force inversely proportional to dist
     }
 

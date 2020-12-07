@@ -123,6 +123,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 9e11bfe181fbf4c44bf2c0ba3402c989, type: 2}
+--- !u!1 &37655237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3367589180157534812, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+  m_PrefabInstance: {fileID: 404970573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &37655244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37655237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4ecf0d8823bff4582e4cc5c1f4e320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodHum: event:/Gun/Energy Cells
+  fmodFire: event:/Gun/Fire
+  CurrentState: 0
 --- !u!1 &46538914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,6 +2370,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3367589178552905328, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3367589180157534812, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
       propertyPath: m_TagString
       value: Player
@@ -2362,6 +2386,10 @@ PrefabInstance:
       propertyPath: burst
       value: 
       objectReference: {fileID: 544382872}
+    - target: {fileID: 3367589180157534813, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+      propertyPath: gunAudio
+      value: 
+      objectReference: {fileID: 37655244}
     - target: {fileID: 3367589180157534813, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
       propertyPath: recoilForce
       value: 10
@@ -3678,13 +3706,32 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1958281297}
+  - component: {fileID: 689462132}
   m_Layer: 0
-  m_Name: Recovery GameObject (1958281297)
+  m_Name: GameAudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &689462132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689462131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558e3d44b45381b45b8ddd9c87d1dbfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FMODScoreUp: event:/Unassigned/Score Up
+  FMODScoreDown: event:/Unassigned/Score Down
+  FMODWin: event:/Unassigned/Explosion
+  FMODLose: event:/Unassigned/Explosion
+  FMODIncinerate: event:/Incinerator/Burn Object
+  FMODEnemyFootstep: event:/Player/Footstep
 --- !u!4 &718603083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7439242679599860940, guid: 47c710b90fcba394e9fb949fe02fd609, type: 3}
@@ -3911,6 +3958,25 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &921880418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3367589178552905335, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+  m_PrefabInstance: {fileID: 404970573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &921880422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921880418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 37655237}
+  ListenerNumber: -1
 --- !u!1 &922358127
 GameObject:
   m_ObjectHideFlags: 0
