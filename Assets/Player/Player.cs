@@ -48,6 +48,11 @@ public class Player : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; //delete this
 
+        //set the sensitivity
+        string[] lines = System.IO.File.ReadAllLines ("Assets/Resources/Tools/sensitivity.txt");
+        xMouseSensitivity = float.Parse(lines[0]);
+        yMouseSensitivity = float.Parse(lines[1]);
+        
         // Put the camera inside the capsule collider
         playerView = Camera.main.transform;
         playerView.position = new Vector3(

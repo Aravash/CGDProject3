@@ -126,6 +126,12 @@
             </e>
           </e>
         </e>
+        <e p="Resources" t="Include">
+          <e p="Tools" t="Include">
+            <e p="sensitivity.txt" t="Include" />
+            <e p="SensWriter.cs" t="Include" />
+          </e>
+        </e>
       </e>
       <e p="CGDProject3.sln" t="IncludeFlat" />
       <e p="FMODUnity.csproj" t="IncludeRecursive" />
