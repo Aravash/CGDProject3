@@ -144,62 +144,26 @@ public class Enemy : MonoBehaviour
                 ChooseWanderPoint();
             }
         }
-    }
 
-    private void FixedUpdate()
-    {
-
-        
-
-        if(active && !grabbed && !yeeting)
+        if (active && !grabbed && !yeeting)
         {
-
             agent.destination = target.position;
 
             waitTime -= Time.deltaTime;
-
-
-            /*
-            if(controller != null)
-            {
-                if(controller.isGrounded == false)
-                {
-                    moveVector.y += -9.81f * Time.deltaTime * 2;
-                }
-
-                Vector3 asdf = new Vector3(randomPos.x, transform.position.y, randomPos.z);
-                Vector3 dir = asdf - transform.position;
-
-                Vector3 gogo = dir.normalized * 2;
-                moveVector.x = gogo.x;
-                moveVector.z = gogo.z;
-
-                controller.Move(moveVector * Time.deltaTime);
-                //transform.rotation = Quaternion.LookRotation(gogo);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(gogo), 1000 * Time.deltaTime);
-            }
-            */
-            /*
-            Vector3 dir = randomPos - transform.position;
-            Vector3 asdf = new Vector3(randomPos.x, transform.position.y, randomPos.z);
-            transform.LookAt(asdf);
-            rb.AddRelativeForce(Vector3.forward * Time.deltaTime* 500, ForceMode.Force);
-            */
-
-
         }
 
-        if(fixRot)
+        if (fixRot)
         {
             rb.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, Time.deltaTime * 500);
         }
 
-        if(waitTime <= 0 && !endChosen)
+        if (waitTime <= 0 && !endChosen)
         {
             ChooseEndpoint();
         }
 
     }
+
 
     void ActivateEnemy()
     {
