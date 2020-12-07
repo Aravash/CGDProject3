@@ -70,7 +70,7 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        // @Conrad, this is all yours
+        // @Conrad, this is all yours -- thanks
         if (wrapped)
         {
             newObj.AddComponent<WrappingHandler>();

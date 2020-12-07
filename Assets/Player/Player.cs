@@ -244,6 +244,11 @@ public class Player : MonoBehaviour
                 held_object.useGravity = true;
                 held_object.velocity *= 0;
 
+                if (held_object.gameObject.GetComponent<WrappingHandler>())
+                {
+                    held_object.gameObject.GetComponent<WrappingHandler>().allowBreaking = true;
+                }
+
                 Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
                 held_object.AddForce(dir, ForceMode.Impulse);
                 held_object = null;

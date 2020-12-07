@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class WrappingHandler : MonoBehaviour
 {
+    [HideInInspector] public bool allowBreaking;
+
+    private Collider transCol;
+    private Rigidbody rb;
+    private float impactBreakForce;
+
     void Awake()
     {
+        allowBreaking = false;
+        rb = GetComponent<Rigidbody>();
+        impactBreakForce = 10;
+
         // Add wrapping around object
         GameObject wrapping = Instantiate(Resources.Load("Wrapping"), transform) as GameObject;
         wrapping.name = "Wrapping";
 
         // Resize wrapping
-        Collider transCol = transform.transform.GetComponent<Collider>();
+        transCol = transform.transform.GetComponent<Collider>();
         Collider wrapCol = wrapping.transform.Find("Mesh").GetComponent<Collider>();
         
         float xDif = transCol.bounds.size.x - wrapCol.bounds.size.x;
@@ -31,17 +41,38 @@ public class WrappingHandler : MonoBehaviour
 
         wrapCol.enabled = false;
     }
+
     void Update()
     {
-        //If hit against wall with force:
         //Test code
         if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log("P pressed");
-            //shread wrapping (remove mesh layer, create pop particles, etc.) & remove this script
-
-            Destroy(transform.Find("Wrapping").gameObject);
-            Destroy(this);
+            
+            PopWrapping();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Debug.Log(rb.velocity.magnitude);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Detecting hard impact
+        if (rb.velocity.magnitude >= impactBreakForce && allowBreaking)
+        {
+            PopWrapping();
+        }
+        
+        allowBreaking = false;
+    }
+
+    void PopWrapping()
+    {
+        //shread wrapping (remove mesh layer, create pop particles, etc.) & remove this script
+        Destroy(transform.Find("Wrapping").gameObject);
+        Destroy(this);
     }
 }
