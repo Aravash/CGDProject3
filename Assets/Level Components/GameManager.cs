@@ -15,11 +15,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Door door;
     [SerializeField] private Sprite jreCurse;
 
-    private static GameManager instance;
+    public static GameManager _i;
 
     void Awake()
     {
-        instance = this;
+        _i = this;
     }
 
     private void Update()
@@ -61,6 +61,45 @@ public class GameManager : MonoBehaviour
 
     public static void ChangeScore(float change)
     {
-        instance.currentScore += change;
+        _i.currentScore += change;
     }
+
+    #region stat tracking
+    // Stat tracking
+    int objects_in_play = 3; // start at 3 cuz Table, Chair and Dresser
+    int mistakes_trash = 0;
+    int mistakes_colour = 0;
+    int mistakes_incinerated_good = 0;
+    int enemies_missed = 0;
+    int enemies_burnt = 0;
+
+    public void counterInc()
+    {
+        ++objects_in_play;
+    }
+    public void counterDec()
+    {
+        --objects_in_play;
+    }
+    public void mistakeTrash()
+    {
+        ++mistakes_trash;
+    }
+    public void mistakeColour()
+    {
+        ++mistakes_colour;
+    }
+    public void mistakeGood()
+    {
+        ++mistakes_incinerated_good;
+    }
+    public void enemyMissed()
+    {
+        ++enemies_missed;
+    }
+    public void enemyBurnt()
+    {
+        ++enemies_burnt;
+    }
+    #endregion
 }
