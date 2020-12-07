@@ -35,6 +35,7 @@
         </e>
         <e p="Player" t="Include">
           <e p="Player.cs" t="Include" />
+          <e p="SensWriter.cs" t="Include" />
           <e p="UIWeapon" t="Include">
             <e p="renderDepthTexture.cs" t="Include" />
             <e p="scrolltex.cs" t="Include" />
