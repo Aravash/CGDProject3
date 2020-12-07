@@ -36,6 +36,7 @@ public class Chute : MonoBehaviour
         if (incinerator)
         {
             Debug.Log("Incinerated!");
+            GameAudioManager.Incinerate(other.transform.position);
             return;
         }
 
@@ -46,15 +47,18 @@ public class Chute : MonoBehaviour
             {
                 Debug.Log("CORRECT! GAIN POINTS!!"); // gain 2
                 GameManager.ChangeScore(GoodGain);
+                GameAudioManager.GainScore();
                 return;
             }
             Debug.Log("WRONG!!! LOSE POINTS!!!"); // lose 3
             GameManager.ChangeScore(-WrongColourLoss);
+            GameAudioManager.LoseScore();
         }
         else if (other.tag == "BAD")
         {
             Debug.Log("WRONG!!! LOSE MANY POINTS!!!!!"); // lose 5
             GameManager.ChangeScore(-BadLoss);
+            GameAudioManager.LoseScore();
         }
     }
 
