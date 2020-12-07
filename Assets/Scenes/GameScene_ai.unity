@@ -4492,6 +4492,14 @@ PrefabInstance:
       propertyPath: recoilForce
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3367589180157534813, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+      propertyPath: xMouseSensitivity
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367589180157534813, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+      propertyPath: yMouseSensitivity
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 3367589180304625462, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
       propertyPath: m_RootOrder
       value: 4
