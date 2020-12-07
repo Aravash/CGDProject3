@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class SensWriter : MonoBehaviour
 {
-    public void writeX(float x)
+    public void writeSens(System.Single vol)
     {
-        
-    }
-
-    public void writeY(float y)
-    {
-        
+        StreamWriter writer = new StreamWriter("Assets/Resources/Tools/sensitivity.txt", true);
+        writer.Write(vol);
+        Debug.Log("wrote "+ vol);
+        writer.Close();
     }
 }

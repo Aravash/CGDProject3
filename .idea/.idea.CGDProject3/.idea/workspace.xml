@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21fb1236-1537-4a1c-b3d3-0bf31b0b605b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tools/SensWriter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Tools/SensWriter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tools/sensitivity.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Tools/sensitivity.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,9 +52,9 @@
         <option value="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/Tools/sensitivity.txt" />
         <option value="$PROJECT_DIR$/Assets/Resources/Tools/SensWriter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
       </list>
     </option>
   </component>
@@ -120,7 +119,7 @@
       <workItem from="1607208560006" duration="2587000" />
       <workItem from="1607269843959" duration="2374000" />
       <workItem from="1607289816057" duration="5268000" />
-      <workItem from="1607363212915" duration="2911000" />
+      <workItem from="1607363212915" duration="4212000" />
     </task>
     <servers />
   </component>

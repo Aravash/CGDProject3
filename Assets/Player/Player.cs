@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Player : MonoBehaviour
 {
@@ -47,21 +48,20 @@ public class Player : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; //delete this
-
-        //set the sensitivity
-        string[] lines = System.IO.File.ReadAllLines ("Assets/Resources/Tools/sensitivity.txt");
-        xMouseSensitivity = float.Parse(lines[0]);
-        yMouseSensitivity = float.Parse(lines[1]);
-        
         // Put the camera inside the capsule collider
         playerView = Camera.main.transform;
         playerView.position = new Vector3(
             transform.position.x,
             transform.position.y + playerViewYOffset,
             transform.position.z);
-
-
+        
         rb = GetComponent<Rigidbody>();
+        
+        //set the sensitivity
+        string[] lines = File.ReadAllLines ("Assets/Resources/Tools/sensitivity.txt");
+        xMouseSensitivity = float.Parse(lines[0]);
+        yMouseSensitivity = float.Parse(lines[0]);
+        Debug.Log("read file and got "+ lines[0]);
     }
 
     void Update()
