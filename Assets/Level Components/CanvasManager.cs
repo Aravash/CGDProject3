@@ -34,6 +34,13 @@ public class CanvasManager : MonoBehaviour
         Cursor.visible = false;
         SceneManager.LoadScene("GameScene");
     }
+    
+    public static void loadWeirdGame()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        SceneManager.LoadScene("GameScene_ai");
+    }
 
     public static void loadMenu()
     {

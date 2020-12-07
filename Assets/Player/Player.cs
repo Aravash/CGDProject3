@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     const float MV_ACCEL = 2.5f;
     const float MV_FRICTION = 0.5f;
-    const float MV_AIR_FRICTION = 0.3f;
+    private const float MV_AIR_FRICTION = 0.3f;
 
     bool grounded = true;
 
@@ -56,12 +56,9 @@ public class Player : MonoBehaviour
             transform.position.z);
         
         rb = GetComponent<Rigidbody>();
-        
-        //set the sensitivity
-        string[] lines = File.ReadAllLines ("Assets/Resources/Tools/sensitivity.txt");
-        xMouseSensitivity = float.Parse(lines[0]);
-        yMouseSensitivity = float.Parse(lines[0]);
-        Debug.Log("read file and got "+ lines[0]);
+
+        xMouseSensitivity = SensWriter.GetSens();
+        yMouseSensitivity = SensWriter.GetSens();
     }
 
     void Update()
