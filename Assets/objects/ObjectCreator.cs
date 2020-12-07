@@ -22,15 +22,16 @@ public class ObjectCreator : MonoBehaviour
     const float SPAWN_TMR_MAX = 0.7f;
     const float SPAWN_TMR_MIN = 0.3f;
     int wave_size = 0;
-    const int WAVE_SIZE_MAX = 5;
-
-    // Audio Event to use
-    [SerializeField] private FMODUnity.StudioEventEmitter eventEmitter;
+    [SerializeField] int WAVE_SIZE_MAX = 5;
+    [SerializeField] int ENEMY_CHANCE_RECIPROCAL = 6;
+    [SerializeField] int WRAPPED_CHANCE_RECIPROCAL;
 
     void Start()
     {
         models = Resources.LoadAll<GameObject>("objects");
         col = GetComponent<BoxCollider>();
+
+        WRAPPED_CHANCE_RECIPROCAL = 4;
     }
 
     private void Update()
@@ -38,12 +39,16 @@ public class ObjectCreator : MonoBehaviour
         //Test code
         if (Input.GetKeyDown(KeyCode.K))
         {
-            BuildObject(ObjectTypes.REGULAR, false);
+            BuildObject();
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            BuildObject(ObjectTypes.REGULAR, true);
+            int currentChance = WRAPPED_CHANCE_RECIPROCAL;
+            WRAPPED_CHANCE_RECIPROCAL = 0;
+            BuildObject();
+            WRAPPED_CHANCE_RECIPROCAL = currentChance;
         }
+
         // Automatic waves
         wave_timer -= Time.deltaTime;
         if(wave_timer <= 0)
@@ -52,49 +57,39 @@ public class ObjectCreator : MonoBehaviour
         }
     }
 
-    public void BuildObject(ObjectTypes type = ObjectTypes.REGULAR, bool wrapped = false)
+    public void BuildObject()
     {
         Vector3 pos = new Vector3(Random.Range(col.bounds.min.x, col.bounds.max.x),
                                   transform.position.y,
                                   Random.Range(col.bounds.min.z, col.bounds.max.z));
 
         GameObject newObj = gameObject;
+        newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
 
-        switch (type)
+        // Only convert BAD props to enemies
+        if(newObj.tag == "BAD")
         {
-            case (ObjectTypes.REGULAR):
-                {
-                    newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
-                    break;
-                }
-            case (ObjectTypes.TRASH):
-                {
-                    //Currently same as regular
-                    newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
-                    break;
-                }
-            case (ObjectTypes.ENEMY):
-                {
-                    //Currently same as regular
-                    newObj = Instantiate(models[Random.Range(0, models.Length)], pos, transform.rotation);
-                    break;
-                }
+            if(Random.Range(0, ENEMY_CHANCE_RECIPROCAL) == 0)
+            {
+                // Attach enemy script
+                newObj.AddComponent<Enemy>();
+                Debug.Log("Enemy spawned!");
+            }
         }
 
-        if (wrapped)
-        {
-            newObj.AddComponent<WrappingHandler>();
-        }
-
-        // Add Audio Event
-        newObj.AddComponent<FMODUnity.StudioEventEmitter>();
-        var tmp = newObj.GetComponent<FMODUnity.StudioEventEmitter>();
-        tmp.Event = eventEmitter.Event;
-        tmp.CollisionTag = eventEmitter.CollisionTag;
-        tmp.PlayEvent = eventEmitter.PlayEvent;
-
+        // Set Colour
         Chute.col_ids colour = (Chute.col_ids)Random.Range(0, 6); // int rand is maximally exclusive
         newObj.GetComponent<Renderer>().material.color = Chute.getColour(colour);
+
+        // Add wrapper if requested
+        if (newObj.tag == "GOOD" && WRAPPED_CHANCE_RECIPROCAL >= 0)
+        {
+            if (Random.Range(0, WRAPPED_CHANCE_RECIPROCAL) == 0)
+            {
+                newObj.AddComponent<WrappingHandler>();
+                newObj.GetComponent<WrappingHandler>().SetColour(colour);
+            }
+        }
     }
 
     private void OnDrawGizmos()

@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] float yMouseSensitivity = 30.0f;
     private float rotX = 0.0f;
     private float rotY = 0.0f;
+    [SerializeField] private float recoilOffset;
+    [SerializeField] private float recoilForce = .3f;
 
     const float MV_ACCEL = 2.5f;
     const float MV_FRICTION = 0.5f;
@@ -31,7 +33,8 @@ public class Player : MonoBehaviour
     const float FIRE_RANGE = 5;
 
     [SerializeField]private WeaponSway gunSway;
-    [SerializeField] private GunAudio gunAudio;
+    [SerializeField]private ParticleSystem burst;
+    [SerializeField]private ParticleSystem punt;
 
     // GravGun timers
     float grab_cd = 0;
@@ -43,9 +46,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Hide the cursor
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; //delete this
 
         // Put the camera inside the capsule collider
         playerView = Camera.main.transform;
@@ -172,23 +173,29 @@ public class Player : MonoBehaviour
         rotY += changeY;
         // Clamp the X rotation
         if (rotX < -90)
-            rotX = -90;
+            rotX = -89;
         else if (rotX > 90)
-            rotX = 90;
+            rotX = 89;
         transform.rotation = Quaternion.Euler(0, rotY, 0); // Rotates the collider
-        playerView.rotation = Quaternion.Euler(rotX, rotY, 0); // Rotates the camera
+        playerView.rotation = Quaternion.Euler(rotX-recoilOffset, rotY, 0); // Rotates the camera
+        recoilOffset = Mathf.Lerp(recoilOffset, 0, Time.deltaTime * 2f);
         gunSway.gunUpdate(new Vector3(changeY, changeX, 0));
-
     }
 
     // Gravity gun
     private void grab()
     {
-        gunAudio.playGrab();
         RaycastHit hit;
-        if (Physics.Raycast(playerView.position, playerView.forward, out hit, 100.0f))
+        Ray ray = new Ray(playerView.position, playerView.forward);
+        if (Physics.Raycast(ray, out hit, 100.0f, 1))
         {
             Debug.DrawRay(playerView.position, playerView.forward * 100.0f, Color.white, 1);
+
+            if(hit.collider.gameObject.GetComponent<Enemy>())
+            {
+                hit.collider.gameObject.GetComponent<Enemy>().DeactivateEnemy();
+            }
+
             Rigidbody other = hit.collider.gameObject.GetComponent<Rigidbody>();
             if(other)
             {
@@ -196,14 +203,11 @@ public class Player : MonoBehaviour
                 held_object.useGravity = false;
             }
         }
-
-        
     }
 
     private void drop()
     {
-        gunAudio.playDrop();
-        if (held_object)
+        if(held_object)
             held_object.useGravity = true;
         held_object = null;
     }
@@ -231,7 +235,6 @@ public class Player : MonoBehaviour
 
     private void fire()
     {
-        gunAudio.playFire();
         // Throw the held object
         if (held_object != null)
         {
@@ -241,24 +244,29 @@ public class Player : MonoBehaviour
                 held_object.useGravity = true;
                 held_object.velocity *= 0;
 
+                if (held_object.gameObject.GetComponent<WrappingHandler>())
+                {
+                    held_object.gameObject.GetComponent<WrappingHandler>().allowBreaking = true;
+                }
+
                 Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
                 held_object.AddForce(dir, ForceMode.Impulse);
                 held_object = null;
+                recoilOffset += recoilForce;
+                burst.Play();
                 Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
                 // set the timers
                 grab_cd = GRAB_CD;
                 launch_cd = LAUNCH_CD;
-
-                // Play Sound
-                gunAudio.playFire();
             }
         }
         // else Punt the object in front
         else
         {
             RaycastHit hit;
+            Ray ray = new Ray(playerView.position, playerView.forward);
             Debug.DrawRay(playerView.position, playerView.forward * FIRE_RANGE, Color.yellow, 1);
-            if (Physics.Raycast(playerView.position, playerView.forward, out hit, FIRE_RANGE))
+            if (Physics.Raycast(ray, out hit, FIRE_RANGE, 1))
             {
                 Rigidbody other = hit.collider.gameObject.GetComponent<Rigidbody>();
                 if (other)
@@ -268,9 +276,8 @@ public class Player : MonoBehaviour
                     // set the timers
                     grab_cd = GRAB_CD;
                     launch_cd = LAUNCH_CD;
-
-                    // Play Sound
-                    gunAudio.playFire();
+                    recoilOffset += recoilForce;
+                    punt.Play();
                 }
             }
         }

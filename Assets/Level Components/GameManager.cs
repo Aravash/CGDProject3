@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private float maxScore = 10;
-    private float currentScore = 5;
+    [SerializeField]private float maxScore = 10;
+    [SerializeField]private float currentScore = 5;
     private float currentVisualScore = 1;
     private float scoreChangeSpeed = 2.0f;
 
     [SerializeField] private Image mask;
     [SerializeField] private Door door;
+    [SerializeField] private Sprite jreCurse;
 
     private static GameManager instance;
 
@@ -28,6 +29,16 @@ public class GameManager : MonoBehaviour
             float changeSpeed = scoreChangeSpeed * Time.deltaTime;
             currentVisualScore = Mathf.Lerp(currentVisualScore, currentScore, changeSpeed);
             UpdateFillAmount();
+        }
+
+        if (Input.GetKey("j") && Input.GetKey("r") && Input.GetKey("e"))
+        {
+            SpriteRenderer[] jre = GameObject.Find("ChuteSprites").transform.GetComponentsInChildren<SpriteRenderer>();
+            foreach (SpriteRenderer child in jre)
+            {
+                child.sprite = jreCurse;
+                child.transform.localScale = Vector3.one;
+            }
         }
 
         if (currentVisualScore >= maxScore)
