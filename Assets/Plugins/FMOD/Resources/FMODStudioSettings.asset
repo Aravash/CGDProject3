@@ -98,6 +98,7 @@ MonoBehaviour:
   - Fireworks
   - Gravity Gun
   - Objects
+  - Unassigned
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
