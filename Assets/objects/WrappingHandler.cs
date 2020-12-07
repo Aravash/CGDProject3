@@ -17,7 +17,7 @@ public class WrappingHandler : MonoBehaviour
         impactBreakForce = 10;
 
         // Add wrapping around object
-        GameObject wrapping = Instantiate(Resources.Load("Wrapping"), transform) as GameObject;
+        GameObject wrapping = Instantiate(Resources.Load("Wrapping/Wrapping"), transform) as GameObject;
         wrapping.name = "Wrapping";
 
         // Resize wrapping
@@ -40,6 +40,38 @@ public class WrappingHandler : MonoBehaviour
         wrapping.transform.localScale = new Vector3(highest, highest, highest);
 
         wrapCol.enabled = false;
+        
+    }
+
+    public void SetColour(Chute.col_ids colour)
+    {
+        // Texture wrapping
+        Renderer WrapRenderer = transform.Find("Wrapping").transform.Find("Mesh").GetComponent<Renderer>();
+        Material mat = Resources.Load("Wrapping/Wrapping-Cyan", typeof(Material)) as Material;
+
+        switch (colour)
+        {
+            case Chute.col_ids.BLUE:
+                mat = Resources.Load("Wrapping/Wrapping-Blue", typeof(Material)) as Material;
+                break;
+            case Chute.col_ids.CYAN:
+                mat = Resources.Load("Wrapping/Wrapping-Cyan", typeof(Material)) as Material;
+                break;
+            case Chute.col_ids.LIME:
+                mat = Resources.Load("Wrapping/Wrapping-Green", typeof(Material)) as Material;
+                break;
+            case Chute.col_ids.PURPLE:
+                mat = Resources.Load("Wrapping/Wrapping-Purple", typeof(Material)) as Material;
+                break;
+            case Chute.col_ids.RED:
+                mat = Resources.Load("Wrapping/Wrapping-Red", typeof(Material)) as Material;
+                break;
+            case Chute.col_ids.YELLOW:
+                mat = Resources.Load("Wrapping/Wrapping-Yellow", typeof(Material)) as Material;
+                break;
+        }
+
+        WrapRenderer.material = mat;
     }
 
     void Update()
@@ -51,11 +83,6 @@ public class WrappingHandler : MonoBehaviour
             
             PopWrapping();
         }
-    }
-
-    private void FixedUpdate()
-    {
-        Debug.Log(rb.velocity.magnitude);
     }
 
     private void OnCollisionEnter(Collision collision)

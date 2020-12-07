@@ -70,15 +70,16 @@ public class ObjectCreator : MonoBehaviour
             }
         }
 
-        // @Conrad, this is all yours -- thanks
-        if (wrapped)
-        {
-            newObj.AddComponent<WrappingHandler>();
-        }
-
         // Set Colour
         Chute.col_ids colour = (Chute.col_ids)Random.Range(0, 6); // int rand is maximally exclusive
         newObj.GetComponent<Renderer>().material.color = Chute.getColour(colour);
+        
+        // Add wrapper if requested
+        if (wrapped)
+        {
+            newObj.AddComponent<WrappingHandler>();
+            newObj.GetComponent<WrappingHandler>().SetColour(colour);
+        }
     }
 
     private void OnDrawGizmos()
