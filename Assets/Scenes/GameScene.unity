@@ -2812,6 +2812,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winElements: {fileID: 2085147184}
   loseElements: {fileID: 1226475855}
+  mainMenu: {fileID: 0}
+  settings: {fileID: 0}
 --- !u!1 &516090812
 GameObject:
   m_ObjectHideFlags: 0
@@ -5429,7 +5431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210604095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.672967, y: -1.1438606, z: 8.445033}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
