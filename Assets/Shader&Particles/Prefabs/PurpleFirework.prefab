@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4984822614482191419
+--- !u!1 &7477356927801582033
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4984822614482191556}
-  - component: {fileID: 4984822614482191558}
-  - component: {fileID: 4984822614482191557}
+  - component: {fileID: 7477356927801581870}
+  - component: {fileID: 7477356927801581868}
+  - component: {fileID: 7477356927801581871}
   m_Layer: 0
-  m_Name: BlueFirework
+  m_Name: PurpleFirework
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4984822614482191556
+--- !u!4 &7477356927801581870
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984822614482191419}
+  m_GameObject: {fileID: 7477356927801582033}
   m_LocalRotation: {x: -0.08580843, y: 0.701881, z: 0.08580843, w: 0.701881}
-  m_LocalPosition: {x: 14.51, y: 1.27, z: -1.24}
+  m_LocalPosition: {x: 14.51, y: 1.27, z: 2.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -13.94, y: 90, z: 0}
---- !u!2083052967 &4984822614482191558
+--- !u!2083052967 &7477356927801581868
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984822614482191419}
+  m_GameObject: {fileID: 7477356927801582033}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: 8ce9cdcf5653d8c43b2f2583152cb35a, type: 3}
   m_InitialEventName: OnPlay
@@ -54,7 +54,7 @@ VisualEffect:
       - m_Value: 100
         m_Name: ExplosionAmount
         m_Overridden: 1
-      - m_Value: 30
+      - m_Value: 60
         m_Name: TriggerRate
         m_Overridden: 1
     m_Vector2f:
@@ -63,7 +63,7 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 0, y: 0.0507684, z: 2.055923, w: 1}
+      - m_Value: {x: 0.11769969, y: 0, z: 2.0559232, w: 1}
         m_Name: FireworkColour
         m_Overridden: 1
     m_Uint:
@@ -171,7 +171,7 @@ VisualEffect:
         m_Overridden: 1
       - m_Value:
           serializedVersion: 2
-          key0: {r: 0, g: 0, b: 10.492821, a: 1}
+          key0: {r: 0.18701617, g: 0, b: 1.4381627, a: 1}
           key1: {r: 1.0967333, g: 0.4906328, b: 0, a: 1}
           key2: {r: 2.9960785, g: 2.0336409, b: 0, a: 0}
           key3: {r: 0, g: 0, b: 0, a: 0}
@@ -203,7 +203,7 @@ VisualEffect:
       - m_Value:
           serializedVersion: 2
           key0: {r: 1, g: 1, b: 1, a: 1}
-          key1: {r: 0, g: 0, b: 142.06256, a: 1}
+          key1: {r: 0.2789187, g: 0, b: 4.834591, a: 1}
           key2: {r: 458.69232, g: 458.69232, b: 458.69232, a: 0}
           key3: {r: 343.56958, g: 0, b: 0, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
@@ -234,7 +234,7 @@ VisualEffect:
       - m_Value:
           serializedVersion: 2
           key0: {r: 2.0812953, g: 0, b: 0, a: 1}
-          key1: {r: 0, g: 0, b: 1.5797266, a: 1}
+          key1: {r: 0.26466626, g: 0, b: 6.748989, a: 1}
           key2: {r: 0, g: 0, b: 0, a: 0}
           key3: {r: 0, g: 0, b: 0, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
@@ -266,13 +266,13 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!73398921 &4984822614482191557
+--- !u!73398921 &7477356927801581871
 VFXRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984822614482191419}
+  m_GameObject: {fileID: 7477356927801582033}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
