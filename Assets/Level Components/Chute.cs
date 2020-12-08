@@ -92,6 +92,7 @@ public class Chute : MonoBehaviour
 
                     GameManager.ChangeScore(GoodGain);
                     vfx.GetComponent<VisualEffect>().Play();
+                    GameAudioManager.PlayFireworks(this.transform.position);
                     return;
 
                 }

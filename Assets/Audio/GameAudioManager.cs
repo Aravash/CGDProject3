@@ -46,7 +46,9 @@ public class GameAudioManager : MonoBehaviour
     [SerializeField]
     [FMODUnity.EventRef]
     public string FMODWrappingDestroy = null;
-
+    [SerializeField]
+    [FMODUnity.EventRef]
+    public string FMODFireworks = null;
 
 
     #endregion
@@ -62,11 +64,17 @@ public class GameAudioManager : MonoBehaviour
 
     }
 
+
     private static Vector3 getPlayerPos()
     {
         var array = GameObject.FindGameObjectsWithTag("Player");
         if (array[0]) return array[0].transform.position;
         return Vector3.zero;
+    }
+
+    public static void PlayFireworks(Vector3 pos)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(_instance.FMODFireworks, pos);
     }
 
     public static void WrappingDestroy(Vector3 pos)
