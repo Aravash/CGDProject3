@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
     bool doonce;
     bool tryingToEnable;
 
-    bool tryingToActivate;
+    public bool tryingToActivate;
 
     const float maxFailTime = 5;
     public float jumpFailTimer;
@@ -192,7 +192,16 @@ public class Enemy : MonoBehaviour
         }
         if(tryingToActivate)
         {
-            ActivateEnemy();
+            if(active)
+            {
+                tryingToActivate = false;
+            }
+            else
+            {
+
+                ActivateEnemy();
+            }
+
         }
 
         if(yeeting)
@@ -298,10 +307,14 @@ public class Enemy : MonoBehaviour
         // rb.constraints = RigidbodyConstraints.None;
         // rb.constraints = RigidbodyConstraints.FreezeRotationZ;
         rb.isKinematic = false;
+        Debug.Log("rb unkinematiced");
         legs.GetComponent<leg>().DeactivateLeg();
-        active = false;
-        doonce = false;
+        Debug.Log("animation called");
+
         waitTime = Random.Range(minTime, maxTime);
+        Debug.Log("wait time fixed");
+        doonce = false;
+        
         ChooseWanderPoint();
     }
 
@@ -314,7 +327,23 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         fixRot = false;
         rb.rotation = Quaternion.identity;
-        
+
+        if(ep == null)
+        {
+            ep = new GameObject("endpoint");
+        }
+
+        if(target == null)
+        {
+            movingTarget = new GameObject("target");
+            target = movingTarget;
+        }
+        ChooseWanderPoint();
+        waitTime = Random.Range(minTime, maxTime);
+        endChosen = false;
+
+
+
         yield return new WaitForSeconds(0.3f);
         rb.isKinematic = true;
 
@@ -430,8 +459,8 @@ public class Enemy : MonoBehaviour
 
 
         //destroy target and ep
-        Destroy(target);
-        Destroy(ep);
+        //Destroy(target);
+        //Destroy(ep);
     }
 
     bool CloseEnoughCheck()
@@ -465,10 +494,16 @@ public class Enemy : MonoBehaviour
             if(!selfRighted)
             {
                 StartCoroutine("RightSelf");
-                //remaketarget????
-                movingTarget = new GameObject("target");
-                target = movingTarget;
-                ep = new GameObject("endpoint");
+                if (ep == null)
+                {
+                    ep = new GameObject("endpoint");
+                }
+
+                if (target == null)
+                {
+                    movingTarget = new GameObject("target");
+                    target = movingTarget;
+                }
                 selfRighted = true;
             }
 

@@ -196,9 +196,9 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100.0f, 1))
         {
             Debug.DrawRay(playerView.position, playerView.forward * 100.0f, Color.white, 1);
-            if(hit.collider.gameObject.GetComponent<Enemy>())
+            if(hit.collider.gameObject.GetComponent<Enemy2>())
             {
-                hit.collider.gameObject.GetComponent<Enemy>().DeactivateEnemy();
+                hit.collider.gameObject.GetComponent<Enemy2>().DeactivateEnemy();
             }
 
             Rigidbody other = hit.collider.gameObject.GetComponent<Rigidbody>();
