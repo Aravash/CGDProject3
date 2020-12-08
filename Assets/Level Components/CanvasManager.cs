@@ -10,6 +10,7 @@ public class CanvasManager : MonoBehaviour
 
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject settings;
+    [SerializeField] private GameObject howToPlay;
     
     private static CanvasManager instance;
 
@@ -52,7 +53,14 @@ public class CanvasManager : MonoBehaviour
     public void swapToMenu()
     {
         settings.SetActive(false);
+        howToPlay.SetActive(false);
         mainMenu.SetActive(true);
+    }
+    
+    public void swapToHowToPlay()
+    {
+        howToPlay.SetActive(true);
+        mainMenu.SetActive(false);
     }
     
     public void swapToSettings()
