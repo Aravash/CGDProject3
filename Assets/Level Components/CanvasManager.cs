@@ -53,6 +53,7 @@ public class CanvasManager : MonoBehaviour
     public void swapToMenu()
     {
         settings.SetActive(false);
+        howToPlay.SetActive(false);
         mainMenu.SetActive(true);
     }
     

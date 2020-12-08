@@ -577,7 +577,7 @@ MonoBehaviour:
   loseElements: {fileID: 0}
   mainMenu: {fileID: 291225451}
   settings: {fileID: 901713966}
-  howToPlay: {fileID: 0}
+  howToPlay: {fileID: 1394940303}
 --- !u!1 &291225451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,7 +2163,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 241043502}
         m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
-        m_MethodName: swapToSettings
+        m_MethodName: swapToHowToPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
