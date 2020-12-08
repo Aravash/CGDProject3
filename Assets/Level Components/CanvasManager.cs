@@ -27,6 +27,13 @@ public class CanvasManager : MonoBehaviour
     public static void ShowLose()
     {
         instance.loseElements.SetActive(true);
+        instance.StartCoroutine(BackToMenu());
+    }
+
+    static IEnumerator BackToMenu()
+    {
+        yield return new WaitForSeconds(4f);
+        loadMenu();
     }
 
     public static void loadGame()
