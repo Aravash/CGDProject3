@@ -197,6 +197,7 @@ public class Enemy2 : MonoBehaviour
         agent.enabled = false;
         rb.isKinematic = false;
         legs.GetComponent<leg>().DeactivateLeg();
+        legs.GetComponent<leg>().UnFlail();
         endChosen = false;
         active = false;
     }
