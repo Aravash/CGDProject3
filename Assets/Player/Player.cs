@@ -192,6 +192,7 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100.0f, 1))
         {
             Debug.DrawRay(playerView.position, playerView.forward * 100.0f, Color.white, 1);
+            feelerManager.SetHold(true);
 
             if(hit.collider.gameObject.GetComponent<Enemy>())
             {
@@ -212,6 +213,7 @@ public class Player : MonoBehaviour
         if(held_object)
             held_object.useGravity = true;
         held_object = null;
+        feelerManager.SetHold(false);
     }
 
     private void pull()
@@ -256,6 +258,8 @@ public class Player : MonoBehaviour
                 held_object = null;
                 recoilOffset += recoilForce;
                 burst.Play();
+                feelerManager.SetHold(false);
+                feelerManager.Fire();
                 Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
                 // set the timers
                 grab_cd = GRAB_CD;
@@ -279,6 +283,7 @@ public class Player : MonoBehaviour
                     grab_cd = GRAB_CD;
                     launch_cd = LAUNCH_CD;
                     recoilOffset += recoilForce;
+                    feelerManager.Fire();
                     punt.Play();
                 }
             }
