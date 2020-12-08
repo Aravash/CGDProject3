@@ -192,8 +192,6 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100.0f, 1))
         {
             Debug.DrawRay(playerView.position, playerView.forward * 100.0f, Color.white, 1);
-            feelerManager.SetHold(true);
-
             if(hit.collider.gameObject.GetComponent<Enemy>())
             {
                 hit.collider.gameObject.GetComponent<Enemy>().DeactivateEnemy();
@@ -204,6 +202,7 @@ public class Player : MonoBehaviour
             {
                 held_object = other;
                 held_object.useGravity = false;
+                feelerManager.SetHold(true);
             }
         }
     }
