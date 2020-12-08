@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5626302951040348537}
   m_Layer: 0
   m_Name: gunsnubnose
-  m_TagString: BAD
+  m_TagString: GOOD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5822079658026378828}
-  m_Mesh: {fileID: -2432090755550338912, guid: 06c71234d72288c43b22d6ca518a65c2, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: 6cd11637d2c66c94896bd2a57391b21d, type: 3}
 --- !u!23 &8475352560802921170
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -77,7 +77,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3033667219593020291, guid: 06c71234d72288c43b22d6ca518a65c2, type: 3}
+  - {fileID: -3033667219593020291, guid: 9dd75ef46ce31e9408f1d3b16381e8e4, type: 3}
+  - {fileID: 2100000, guid: cf558438910a50647a322891a9cdcfde, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,4 +113,4 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 06c71234d72288c43b22d6ca518a65c2, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: 6cd11637d2c66c94896bd2a57391b21d, type: 3}

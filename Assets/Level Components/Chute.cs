@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Experimental.VFX;
 using UnityEngine;
+using UnityEngine.VFX;
 using UnityEngine.SceneManagement;
 
 public class Chute : MonoBehaviour
@@ -19,14 +21,19 @@ public class Chute : MonoBehaviour
     [SerializeField] private float GoodGain = 2f;
     [SerializeField] private float WrongColourLoss = 3f;
     [SerializeField] private float BadLoss = 5;
-    
+
     [SerializeField] bool incinerator = false;
+
+    [SerializeField] GameObject vfx;
 
 
     // Start is called before the first frame update
     void Start()
     {
         my_color = getColour(desired_type);
+
+        vfx = GameObject.FindGameObjectWithTag(desired_type.ToString());
+        vfx.GetComponent<VisualEffect>().Stop();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,48 +41,91 @@ public class Chute : MonoBehaviour
         Destroy(other.gameObject, 2);
 
         Scene currentScene = SceneManager.GetActiveScene();
+
         if (currentScene.name == "GameScene" || currentScene.name == "GameScene_ai")
+
         {
+
             GameManager._i.counterDec();
 
+
+
             // No points gained or lost from incinerating an object
+
             if (incinerator)
+
             {
+
                 Debug.Log("Incinerated!");
+
                 if (other.tag == "GOOD")
+
                 {
+
                     GameManager._i.mistakeGood();
+
                 }
+
                 else if (other.GetComponent<Enemy>())
+
                 {
+
                     GameManager._i.enemyBurnt();
+
                 }
+
                 return;
+
             }
+
+
 
             // classify object
+
             if (other.tag == "GOOD")
+
             {
+
                 if (other.GetComponent<Renderer>().material.color == my_color)
+
                 {
+
                     GameManager.ChangeScore(GoodGain);
+                    vfx.GetComponent<VisualEffect>().Play();
                     return;
+
                 }
+
                 GameManager.ChangeScore(-WrongColourLoss);
+
                 GameManager._i.mistakeColour();
+
             }
+
             else if (other.tag == "BAD")
+
             {
+
                 GameManager.ChangeScore(-BadLoss);
 
+
+
                 if (other.GetComponent<Enemy>())
+
                 {
+
                     GameManager._i.enemyMissed();
+
                 }
+
                 else
+
                 {
+
                     GameManager._i.mistakeTrash();
+
                 }
+
             }
         }
     }
