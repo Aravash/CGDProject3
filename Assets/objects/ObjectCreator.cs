@@ -79,7 +79,7 @@ public class ObjectCreator : MonoBehaviour
             if(Random.Range(0, ENEMY_CHANCE_RECIPROCAL) == 0)
             {
                 // Attach enemy script
-                newObj.AddComponent<Enemy>();
+                newObj.AddComponent<Enemy2>();
                 Debug.Log("Enemy spawned!");
             }
         }

@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
     bool doonce;
     bool tryingToEnable;
 
-    bool tryingToActivate;
+    public bool tryingToActivate;
 
     const float maxFailTime = 5;
     public float jumpFailTimer;
@@ -192,7 +192,16 @@ public class Enemy : MonoBehaviour
         }
         if(tryingToActivate)
         {
-            ActivateEnemy();
+            if(active)
+            {
+                tryingToActivate = false;
+            }
+            else
+            {
+
+                ActivateEnemy();
+            }
+
         }
 
         if(yeeting)
@@ -282,7 +291,11 @@ public class Enemy : MonoBehaviour
 
     public void DeactivateEnemy()
     {
+        Debug.Log("deactivate called");
+        active = false;
+        Debug.Log("active = false");
         agent.enabled = false;
+        Debug.Log("agent disabled");
         /*
         box.enabled = true;
         controller.enabled = false;
@@ -295,9 +308,12 @@ public class Enemy : MonoBehaviour
         // rb.constraints = RigidbodyConstraints.None;
         // rb.constraints = RigidbodyConstraints.FreezeRotationZ;
         rb.isKinematic = false;
+        Debug.Log("rb unkinematiced");
         legs.GetComponent<leg>().DeactivateLeg();
-        active = false;
+        Debug.Log("animation called");
+
         waitTime = Random.Range(minTime, maxTime);
+        Debug.Log("wait time fixed");
         doonce = false;
         
         ChooseWanderPoint();
@@ -323,6 +339,9 @@ public class Enemy : MonoBehaviour
             movingTarget = new GameObject("target");
             target = movingTarget;
         }
+        ChooseWanderPoint();
+        waitTime = Random.Range(minTime, maxTime);
+        endChosen = false;
 
 
 
