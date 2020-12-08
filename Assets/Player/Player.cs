@@ -25,8 +25,6 @@ public class Player : MonoBehaviour
     Rigidbody held_object = null;
 
     GameObject held_item = null;
-    [SerializeField] Material newMat;
-
     Vector3 grip_offset = Vector3.forward * 2f;
     const float PUSH_FORCE = 15;
     const float PULL_FORCE = 0.1f;
