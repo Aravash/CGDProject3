@@ -279,6 +279,7 @@ public class Player : MonoBehaviour
                 burst.Play();
                 feelerManager.SetHold(false);
                 feelerManager.Fire();
+				gunAudio.playFire();
                 Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
                 // set the timers
                 grab_cd = GRAB_CD;
@@ -305,12 +306,13 @@ public class Player : MonoBehaviour
                     launch_cd = LAUNCH_CD;
                     recoilOffset += recoilForce;
                     feelerManager.Fire();
+					gunAudio.playFire();
                     punt.Play();
                 }
             }
         }
 
-        gunAudio.playFire();
+
         // TODO: make the launch force inversely proportional to dist
     }
 

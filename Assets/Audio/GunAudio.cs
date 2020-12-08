@@ -57,7 +57,7 @@ public class GunAudio : MonoBehaviour
 
     public void playFire()
     {
-        if (CurrentState != State.Deactivated) { Fire(); };
+        Fire();
     }
 
     private void Activate()
