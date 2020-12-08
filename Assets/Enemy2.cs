@@ -84,38 +84,46 @@ public class Enemy2 : MonoBehaviour
         //if endpoint chosen go to end, otherwise go to wanderpoint
         if (active && agent.enabled && !haveJumped)
         {
-            if(endChosen)
+            if(CloseEnoughCheck())
             {
-                agent.destination = ep.transform.position;
-                //if I get there do jump
-                Vector3 enemyPos = new Vector3(transform.position.x, 0, transform.position.z);
-                Vector3 tar = new Vector3(ep.transform.position.x, 0, ep.transform.position.z);
-                if (Vector3.Distance(tar, enemyPos) < 0.5f)
+                if (endChosen)
                 {
-                    Jump();
+                    agent.destination = ep.transform.position;
+                    //if I get there do jump
+                    Vector3 enemyPos = new Vector3(transform.position.x, 0, transform.position.z);
+                    Vector3 tar = new Vector3(ep.transform.position.x, 0, ep.transform.position.z);
+                    if (Vector3.Distance(tar, enemyPos) < 0.5f)
+                    {
+                        Jump();
+                    }
+                }
+                else
+                {
+                    agent.destination = wanderTarget.transform.position;
+                    //if I get there change target
+                    Vector3 enemyPos = new Vector3(transform.position.x, 0, transform.position.z);
+                    Vector3 tar = new Vector3(wanderTarget.transform.position.x, 0, wanderTarget.transform.position.z);
+                    if (Vector3.Distance(tar, enemyPos) < 0.5f)
+                    {
+                        ChooseWanderPoint();
+                    }
+
+                    //countdown wander timer
+                    waitTime -= Time.deltaTime;
+                    if (waitTime <= 0)
+                    {
+                        //choose end and go there
+                        ChooseEndpoint();
+                    }
+
+
                 }
             }
             else
             {
-                agent.destination = wanderTarget.transform.position;
-                //if I get there change target
-                Vector3 enemyPos = new Vector3(transform.position.x, 0, transform.position.z);
-                Vector3 tar = new Vector3(wanderTarget.transform.position.x, 0, wanderTarget.transform.position.z);
-                if(Vector3.Distance(tar, enemyPos) < 0.5f)
-                {
-                    ChooseWanderPoint();
-                }
-
-                //countdown wander timer
-                waitTime -= Time.deltaTime;
-                if(waitTime <= 0)
-                {
-                    //choose end and go there
-                    ChooseEndpoint();
-                }
-
-
+                DeactivateEnemy();
             }
+
         }
 
         if(haveJumped)
@@ -163,7 +171,7 @@ public class Enemy2 : MonoBehaviour
         SetWanderTimer();
         ChooseWanderPoint();
         endChosen = false;
-        EnableAgent();
+
         active = true;
         activating = false;
     }
@@ -179,6 +187,7 @@ public class Enemy2 : MonoBehaviour
         rb.rotation = Quaternion.identity;
         yield return new WaitForSeconds(0.3f);
         rb.isKinematic = true;
+        EnableAgent();
     }
 
     public void DeactivateEnemy()
@@ -233,7 +242,7 @@ public class Enemy2 : MonoBehaviour
         SetWanderTimer();
         ChooseWanderPoint();
         endChosen = false;
-        EnableAgent();
+
         active = true;
         activating = false;
     }
@@ -249,6 +258,7 @@ public class Enemy2 : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         rb.isKinematic = true;
         legs.GetComponent<leg>().UnFlail();
+        EnableAgent();
     }
 
 
