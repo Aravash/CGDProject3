@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21fb1236-1537-4a1c-b3d3-0bf31b0b605b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +29,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Level Components/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerHolder.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/scrolltex.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Astar pathfinding/Assets/Agent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../CGDProject2/Assets/menuscript/MenuManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/Feelers/feelerManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -48,14 +48,15 @@
         <option value="$PROJECT_DIR$/Assets/Level Components/Chute.cs" />
         <option value="$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.cs" />
         <option value="$PROJECT_DIR$/Assets/objects/Door.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/Tools/sensitivity.txt" />
         <option value="$PROJECT_DIR$/Assets/Resources/Tools/sensitivity.json" />
-        <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/Tools/SensWriter.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/SensWriter.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/Feelers/feelerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
       </list>
     </option>
   </component>
@@ -121,7 +122,7 @@
       <workItem from="1607269843959" duration="2374000" />
       <workItem from="1607289816057" duration="5268000" />
       <workItem from="1607363212915" duration="4212000" />
-      <workItem from="1607378734254" duration="6323000" />
+      <workItem from="1607378734254" duration="8548000" />
     </task>
     <servers />
   </component>

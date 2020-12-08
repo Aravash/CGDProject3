@@ -13,6 +13,7 @@ public class WeaponLook : MonoBehaviour
     [SerializeField] private Transform muzzleSpot;
     [SerializeField] private Transform muzzleSpot2;
     [SerializeField] private Transform spot;
+    private bool shot;
     private LineRenderer _line;
 
     private void Start()
