@@ -3733,7 +3733,7 @@ MonoBehaviour:
   FMODWin: event:/Unassigned/Explosion
   FMODLose: event:/Unassigned/Explosion
   FMODIncinerate: event:/Incinerator/Burn Object
-  FMODEnemyFootstep: event:/Player/Footstep
+  FMODEnemyFootstep: event:/Object/Footstep
 --- !u!4 &718603083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7439242679599860940, guid: 47c710b90fcba394e9fb949fe02fd609, type: 3}
