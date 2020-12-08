@@ -871,6 +871,14 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2042543220256017193, guid: effc99ae0032b4a479b2012a0790bae2, type: 3}
+      propertyPath: AVRG_WAVE_TMR
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042543220256017193, guid: effc99ae0032b4a479b2012a0790bae2, type: 3}
+      propertyPath: WRAPPED_CHANCE_RECIPROCAL
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2042543220256017194, guid: effc99ae0032b4a479b2012a0790bae2, type: 3}
       propertyPath: m_Name
       value: ObjectFactory
@@ -2379,6 +2387,14 @@ PrefabInstance:
     - target: {fileID: 2042543220256017192, guid: effc99ae0032b4a479b2012a0790bae2, type: 3}
       propertyPath: m_Size.z
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042543220256017193, guid: effc99ae0032b4a479b2012a0790bae2, type: 3}
+      propertyPath: AVRG_WAVE_TMR
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042543220256017193, guid: effc99ae0032b4a479b2012a0790bae2, type: 3}
+      propertyPath: WRAPPED_CHANCE_RECIPROCAL
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2042543220256017194, guid: effc99ae0032b4a479b2012a0790bae2, type: 3}
       propertyPath: m_Name

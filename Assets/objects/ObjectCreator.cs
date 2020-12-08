@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public enum ObjectTypes
 {
@@ -59,7 +60,11 @@ public class ObjectCreator : MonoBehaviour
 
     public void BuildObject()
     {
-        GameManager._i.counterInc();
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "GameScene" || currentScene.name == "GameScene_ai")
+        {
+            GameManager._i.counterInc();
+        }
 
         Vector3 pos = new Vector3(Random.Range(col.bounds.min.x, col.bounds.max.x),
                                   transform.position.y,
