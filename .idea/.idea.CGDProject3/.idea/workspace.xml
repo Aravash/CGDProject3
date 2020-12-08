@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21fb1236-1537-4a1c-b3d3-0bf31b0b605b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Wrapping/Wrapping.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Wrapping/Wrapping.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Wrapping/Wrapping.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Wrapping/Wrapping.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/objects/WrappingHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/objects/WrappingHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +26,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/SensWriter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/objects/ImpactDetector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Level Components/Chute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponSway.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
@@ -59,8 +62,9 @@
         <option value="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/Feelers/feelerManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/objects/ImpactDetector.cs" />
         <option value="$PROJECT_DIR$/Assets/objects/WrappingHandler.cs" />
       </list>
     </option>
