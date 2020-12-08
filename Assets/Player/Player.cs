@@ -23,6 +23,10 @@ public class Player : MonoBehaviour
 
     // GravityGun
     Rigidbody held_object = null;
+
+    GameObject held_item = null;
+    [SerializeField] Material newMat;
+
     Vector3 grip_offset = Vector3.forward * 2f;
     const float PUSH_FORCE = 15;
     const float PULL_FORCE = 0.1f;
@@ -188,9 +192,12 @@ public class Player : MonoBehaviour
         {
             Debug.DrawRay(playerView.position, playerView.forward * 100.0f, Color.white, 1);
             Rigidbody other = hit.collider.gameObject.GetComponent<Rigidbody>();
-            if(other)
+            Renderer item = hit.rigidbody.gameObject.GetComponent<Renderer>();
+            if (other)
             {
                 held_object = other;
+                held_item = item.gameObject;
+                held_item.GetComponent<Renderer>().materials[1].SetFloat("_Outline", 0.05f);
                 held_object.useGravity = false;
             }
         }
@@ -198,8 +205,12 @@ public class Player : MonoBehaviour
 
     private void drop()
     {
-        if(held_object)
+        if (held_object)
+        {
             held_object.useGravity = true;
+            held_item.GetComponent<Renderer>().materials[1].SetFloat("_Outline", 0f);
+        }
+        
         held_object = null;
     }
 
@@ -242,6 +253,8 @@ public class Player : MonoBehaviour
                 // set the timers
                 grab_cd = GRAB_CD;
                 launch_cd = LAUNCH_CD;
+
+                held_item.GetComponent<Renderer>().materials[1].SetFloat("_Outline", 0f);
             }
         }
         // else Punt the object in front
