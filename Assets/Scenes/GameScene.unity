@@ -2479,6 +2479,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burst
       objectReference: {fileID: 0}
+    - target: {fileID: 6913226319761272209, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+      propertyPath: m_Name
+      value: model
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495766483922190490, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+      propertyPath: shootRotateSpeed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495766483922190490, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+      propertyPath: normalRotateSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495766483922190490, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+      propertyPath: grabbedRotateSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7770420734020853763, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
       propertyPath: m_RootOrder
       value: 1

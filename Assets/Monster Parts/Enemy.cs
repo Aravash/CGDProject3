@@ -282,7 +282,10 @@ public class Enemy : MonoBehaviour
 
     public void DeactivateEnemy()
     {
-        agent.enabled = false;
+        if(agent)
+        {
+            agent.enabled = false;
+        }
         /*
         box.enabled = true;
         controller.enabled = false;
