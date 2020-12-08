@@ -224,6 +224,12 @@ public class Player : MonoBehaviour
 
         Debug.DrawRay(held_object.gameObject.transform.position, diff, Color.green, Time.fixedDeltaTime);
 
+        //temporary solution
+        if (held_object.GetComponent<Enemy>())
+        {
+            held_object.GetComponent<Enemy>().DeactivateEnemy();
+        }
+        
         // Truncate the object's vel
         float mag = Vector3.Dot(held_object.velocity, diff.normalized);
         if (mag > PULL_MAX_SPEED)
