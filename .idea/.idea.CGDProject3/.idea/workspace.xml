@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerHolder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/PlayerHolder.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/UIWeapon/Feelers/feelerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/UIWeapon/Feelers/feelerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +17,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/objects/ImpactDetector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Robot-Buddies/Assets/resource/Shader/OverwatchShield.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/GameScene.unity" root0="FORCE_HIGHLIGHTING" />
@@ -48,7 +50,6 @@
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/scrolltex.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/UI/ProgressBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponSway.cs" />
-        <option value="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/Chute.cs" />
         <option value="$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.cs" />
         <option value="$PROJECT_DIR$/Assets/objects/Door.cs" />
@@ -57,10 +58,14 @@
         <option value="$PROJECT_DIR$/Assets/Resources/Tools/SensWriter.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/SensWriter.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/Feelers/feelerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/Feelers/feelerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/objects/ImpactDetector.cs" />
+        <option value="$PROJECT_DIR$/Assets/objects/WrappingHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" />
       </list>
     </option>
   </component>

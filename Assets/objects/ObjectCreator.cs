@@ -94,14 +94,14 @@ public class ObjectCreator : MonoBehaviour
             if (Random.Range(0, WRAPPED_CHANCE_RECIPROCAL) == 0)
             {
                 newObj.AddComponent<WrappingHandler>();
-                newObj.GetComponent<WrappingHandler>().SetColour(colour);
+                //newObj.GetComponent<WrappingHandler>().SetColour(colour);
             }
         }
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, Vector3.one);
+        Gizmos.DrawCube(transform.position, Vector3.one);
     }
 
     private void waveTick()
