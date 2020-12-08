@@ -43,6 +43,10 @@ public class GameAudioManager : MonoBehaviour
     [SerializeField]
     [FMODUnity.EventRef]
     public string FMODEnemyFootstep = null;
+    [SerializeField]
+    [FMODUnity.EventRef]
+    public string FMODWrappingDestroy = null;
+
 
 
     #endregion
@@ -65,6 +69,10 @@ public class GameAudioManager : MonoBehaviour
         return Vector3.zero;
     }
 
+    public static void WrappingDestroy(Vector3 pos)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(_instance.FMODWrappingDestroy, pos);
+    }
 
     public static void EnemyFootstep(Vector3 pos)
     {

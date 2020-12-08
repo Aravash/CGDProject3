@@ -87,6 +87,7 @@ public class WrappingHandler : MonoBehaviour
 
     void PopWrapping()
     {
+        GameAudioManager.WrappingDestroy(this.transform.position);
         //shread wrapping (remove mesh layer, create pop particles, etc.) & remove this script
         Destroy(transform.Find("Wrapping").gameObject);
         Destroy(this);
