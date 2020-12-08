@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]private float currentScore = 5;
     private float currentVisualScore = 1;
     private float scoreChangeSpeed = 2.0f;
+    
+    [SerializeField] private Color gainColour;
+    [SerializeField] private Color neutralColour;
+    [SerializeField] private Color loseColour;
+    [SerializeField] private Image bar;
 
     [SerializeField] private Image mask;
     [SerializeField] private Door door;
@@ -24,12 +29,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Math.Abs(currentVisualScore - currentScore) > 0.01f)
+        if (Math.Abs(currentVisualScore - currentScore) > 0.2f)
         {
             float changeSpeed = scoreChangeSpeed * Time.deltaTime;
             currentVisualScore = Mathf.Lerp(currentVisualScore, currentScore, changeSpeed);
             UpdateFillAmount();
+            bar.color = currentVisualScore > currentScore ? loseColour : gainColour; 
         }
+        else bar.color = neutralColour;
 
         if (Input.GetKey("j") && Input.GetKey("r") && Input.GetKey("e"))
         {

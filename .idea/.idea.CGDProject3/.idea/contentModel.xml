@@ -127,6 +127,7 @@
             </e>
           </e>
         </e>
+        <e p="StompNoise.cs" t="Include" />
       </e>
       <e p="CGDProject3.sln" t="IncludeFlat" />
       <e p="FMODUnity.csproj" t="IncludeRecursive" />
