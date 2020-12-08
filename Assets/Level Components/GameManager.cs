@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]private float maxScore = 10;
     [SerializeField]private float currentScore = 5;
-    private float currentVisualScore = 1;
+    [SerializeField]private float currentVisualScore = 1;
     private float scoreChangeSpeed = 2.0f;
     
     [SerializeField] private Color gainColour;

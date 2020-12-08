@@ -5407,8 +5407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555fa9d9b18fc5649882e8f290869e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScore: 70
-  currentScore: 35
+  maxScore: 40
+  currentScore: 15
+  currentVisualScore: 1
   gainColour: {r: 0, g: 1, b: 0.043819427, a: 1}
   neutralColour: {r: 0, g: 1, b: 0.87342286, a: 1}
   loseColour: {r: 1, g: 0, b: 0, a: 1}
