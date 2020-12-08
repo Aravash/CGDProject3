@@ -62,6 +62,8 @@ public class ObjectCreator : MonoBehaviour
 
     public void BuildObject()
     {
+        GameManager._i.counterInc();
+
         Vector3 pos = new Vector3(Random.Range(col.bounds.min.x, col.bounds.max.x),
                                   transform.position.y,
                                   Random.Range(col.bounds.min.z, col.bounds.max.z));

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Player : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour
 
     const float MV_ACCEL = 2.5f;
     const float MV_FRICTION = 0.5f;
-    const float MV_AIR_FRICTION = 0.3f;
+    private const float MV_AIR_FRICTION = 0.3f;
 
     bool grounded = true;
 
@@ -48,16 +49,17 @@ public class Player : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; //delete this
-
         // Put the camera inside the capsule collider
         playerView = Camera.main.transform;
         playerView.position = new Vector3(
             transform.position.x,
             transform.position.y + playerViewYOffset,
             transform.position.z);
-
-
+        
         rb = GetComponent<Rigidbody>();
+
+        xMouseSensitivity = SensWriter.GetSens();
+        yMouseSensitivity = SensWriter.GetSens();
     }
 
     void Update()

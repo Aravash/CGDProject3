@@ -19,19 +19,19 @@ public class Enemy : MonoBehaviour
 
     Vector3 moveVector;
 
-    public bool fixRot;
-    Transform movingTarget;
+    bool fixRot;
+    GameObject movingTarget;
 
-    Transform target;
+    public GameObject target;
 
     GameObject[] endPoints;
     float waitTime;
     float minTime = 5.0f;
     float maxTime = 10.0f;
-    bool endChosen;
-    Transform ep;
+    public bool endChosen;
+    public GameObject ep;
 
-    public bool yeeting;
+    bool yeeting;
 
     bool grabbed;
 
@@ -39,6 +39,22 @@ public class Enemy : MonoBehaviour
     const float IDLE_TIME = 2;
 
     bool doonce;
+    bool tryingToEnable;
+
+    bool tryingToActivate;
+
+    const float maxFailTime = 5;
+    public float jumpFailTimer;
+
+    public bool tryingToRight;
+
+    bool yeetSelfed;
+    bool selfRighted;
+
+    bool tryingToWander;
+
+    //bool doJump;
+    //bool doFlip;
 
     // Start is called before the first frame update
     void Start()
@@ -48,18 +64,13 @@ public class Enemy : MonoBehaviour
         legs.transform.localEulerAngles = new Vector3(0, 180, 0);
         legs.transform.parent = gameObject.transform;
 
-        agent = gameObject.AddComponent<NavMeshAgent>();
-        agent.baseOffset = 0.3f;
-        agent.height = 0.5f;
-        agent.angularSpeed = 500f;
-        agent.enabled = false;
-
         //legs = transform.Find("Legs n Eyes V2").gameObject;
         rb = GetComponent<Rigidbody>();
 
         //agent = GetComponent<NavMeshAgent>();
-        movingTarget = new GameObject("target").transform;
+        movingTarget = new GameObject("target");
         target = movingTarget;
+        ep = new GameObject("endpoint");
         ChooseWanderPoint();
         fixRot = false;
         grabbed = false;
@@ -68,6 +79,13 @@ public class Enemy : MonoBehaviour
         endChosen = false;
         yeeting = false;
         doonce = false;
+        tryingToEnable = false;
+        tryingToActivate = false;
+        jumpFailTimer = maxFailTime;
+        tryingToRight = false;
+        yeetSelfed = false;
+        selfRighted = false;
+        tryingToWander = false;
     }
 
     // Update is called once per frame
@@ -128,26 +146,32 @@ public class Enemy : MonoBehaviour
 
         g.transform.position = randomPos;
         */
-        Vector3 enemyPos = new Vector3(transform.position.x, 0, transform.position.z);
-        Vector3 tar = new Vector3(target.position.x, 0, target.position.z);
-
-        
-
-        if(Vector3.Distance(tar, enemyPos) < 0.5f)
+        if(target != null)
         {
-            if(endChosen)
+            Vector3 enemyPos = new Vector3(transform.position.x, 0, transform.position.z);
+            Vector3 tar = new Vector3(target.transform.position.x, 0, target.transform.position.z);
+
+
+
+            if (Vector3.Distance(tar, enemyPos) < 0.5f)
             {
-                YeetSelf();
-            }
-            else
-            {
-                ChooseWanderPoint();
+                if (endChosen && target.transform.position == ep.transform.position && !yeetSelfed)
+                {
+                    //and target = the chosen endpoint
+                    YeetSelf();
+                    yeetSelfed = true;
+                }
+                else
+                {
+                    ChooseWanderPoint();
+                }
             }
         }
 
-        if (active && !grabbed && !yeeting)
+
+        if (active && !grabbed && !yeeting && EvenCloserCheck() &&agent.enabled)
         {
-            agent.destination = target.position;
+            agent.destination = target.transform.position;
 
             waitTime -= Time.deltaTime;
         }
@@ -162,8 +186,50 @@ public class Enemy : MonoBehaviour
             ChooseEndpoint();
         }
 
-    }
+        if(tryingToEnable && CloseEnoughCheck())
+        {
+            EnableAgent();
+        }
+        if(tryingToActivate)
+        {
+            ActivateEnemy();
+        }
 
+        if(yeeting)
+        {
+            jumpFailTimer -= Time.deltaTime;
+        }
+        if(jumpFailTimer<= 0)
+        {
+            tryingToRight = true;
+            yeetSelfed = false;
+        }
+        if(tryingToRight)
+        {
+            JumpFailure();
+        }
+        if(tryingToWander)
+        {
+            ChooseWanderPoint();
+        }
+
+    }
+/*
+    private void FixedUpdate()
+    {
+        if(doJump)
+        {
+            rb.velocity = transform.forward * 2 + new Vector3(0, 5, 0);
+            doJump = false;
+        }
+
+        if(doFlip)
+        {
+            rb.AddForce(0, 150, 0);
+            doFlip = false;
+        }
+    }
+    */
 
     void ActivateEnemy()
     {
@@ -194,8 +260,22 @@ public class Enemy : MonoBehaviour
          randomPos = new Vector3(Random.Range(arena.bounds.min.x, arena.bounds.max.x),
          transform.position.y,
          Random.Range(arena.bounds.min.z, arena.bounds.max.z)); */
+         if(agent == null)
+        {
+            CreateNavAgent();
+        }
 
-        StartCoroutine("Activation");
+         if(CloseEnoughCheck())
+        {
+            tryingToActivate = false;
+            StartCoroutine("Activation");
+
+        }
+         else
+        {
+            tryingToActivate = true;
+        }
+
 
         
     }
@@ -217,11 +297,15 @@ public class Enemy : MonoBehaviour
         rb.isKinematic = false;
         legs.GetComponent<leg>().DeactivateLeg();
         active = false;
+        doonce = false;
+        waitTime = Random.Range(minTime, maxTime);
+        ChooseWanderPoint();
     }
 
     IEnumerator Activation()
     {
         rb.AddForce(0, 150, 0);
+        //doFlip = true;
         fixRot = true;
         legs.GetComponent<leg>().ActivateLeg();
         yield return new WaitForSeconds(0.25f);
@@ -231,7 +315,8 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         rb.isKinematic = true;
 
-        agent.enabled = true;
+        //agent.enabled = true;
+        tryingToEnable = true;
         active = true;
     }
 
@@ -245,6 +330,8 @@ public class Enemy : MonoBehaviour
             agent.enabled = false;
             rb.isKinematic = false;
             yeeting = false;
+
+            //after grab start jumptimer and stuff it'll work just as well
         }
 
         
@@ -267,6 +354,7 @@ public class Enemy : MonoBehaviour
         legs.GetComponent<leg>().UnFlail();
 
         rb.AddForce(0, 150, 0);
+        //doFlip = true;
         fixRot = true;
         //legs.GetComponent<leg>().ActivateLeg();
         yield return new WaitForSeconds(0.25f);
@@ -276,14 +364,16 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         rb.isKinematic = true;
 
-        agent.enabled = true;
+        //agent.enabled = true;
+        tryingToEnable = true;
         grabbed = false;
     }
 
     void ChooseEndpoint()
     {
         int index = Random.Range(0, endPoints.Length);
-        ep = endPoints[index].transform;
+        ep.transform.position = endPoints[index].transform.position;
+        ep.transform.rotation = endPoints[index].transform.rotation;
         target = ep;
         endChosen = true;
     }
@@ -302,27 +392,137 @@ public class Enemy : MonoBehaviour
         target.position = finalPosition;
         movingTarget.position = finalPosition;
         */
-
-        float walkRadius = 12;
-        Vector3 newRandomPos = new Vector3 (Random.insideUnitSphere.x * walkRadius, transform.position.y, Random.insideUnitSphere.z * walkRadius);
-        NavMeshHit hit;
-        if(NavMesh.SamplePosition(newRandomPos, out hit, walkRadius, 1))
+        if(target != null)
         {
-            Vector3 finalPosition = hit.position;
-            target.position = finalPosition;
-            movingTarget.position = finalPosition;
+            tryingToWander = false;
+            float walkRadius = 12;
+            Vector3 newRandomPos = new Vector3(Random.insideUnitSphere.x * walkRadius, transform.position.y, Random.insideUnitSphere.z * walkRadius);
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(newRandomPos, out hit, walkRadius, 1))
+            {
+                Vector3 finalPosition = hit.position;
+                target.transform.position = finalPosition;
+                movingTarget.transform.position = finalPosition;
+            }
         }
+        else
+        {
+            tryingToWander = true;
+        }
+
     }
 
     void YeetSelf()
     {
+        jumpFailTimer = maxFailTime;
         yeeting = true;
         agent.enabled = false;
-        transform.rotation = ep.rotation;
-        
+        transform.rotation = ep.transform.rotation;
+
         rb.isKinematic = false;
-        rb.velocity = transform.forward * 2  + new Vector3(0, 5, 0);
-        Debug.Log("Time to die " + gameObject);
+        rb.velocity = (transform.forward * 2) + new Vector3(0, 7, 0);
+        //doJump = true;
+        legs.GetComponent<leg>().Flail();
+        selfRighted = false;
+
+
+        //destroy target and ep
+        Destroy(target);
+        Destroy(ep);
+    }
+
+    bool CloseEnoughCheck()
+    {
+        //do this every time we enable agent, repeat until true
+        //only move if this is true
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(transform.position, out hit, 1.5f, 1))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void EnableAgent()
+    {
+        tryingToEnable = false;
+        agent.enabled = true;
+    }
+
+    void JumpFailure()
+    {
+        yeeting = false;
+        //basically do activate 
+        if (CloseEnoughCheck())
+        {
+            tryingToRight = false;
+            if(!selfRighted)
+            {
+                StartCoroutine("RightSelf");
+                //remaketarget????
+                movingTarget = new GameObject("target");
+                target = movingTarget;
+                ep = new GameObject("endpoint");
+                selfRighted = true;
+            }
+
+        }
+        else
+        {
+            tryingToRight = true;
+        }
+    }
+
+    IEnumerator RightSelf()
+    {
+        rb.AddForce(0, 150, 0);
+        
+        fixRot = true;
+        legs.GetComponent<leg>().UnFlail();
+        yield return new WaitForSeconds(0.25f);
+        fixRot = false;
+        rb.rotation = Quaternion.identity;
+
+        yield return new WaitForSeconds(0.3f);
+        rb.isKinematic = true;
+
+        //agent.enabled = true;
+        tryingToEnable = true;
+        active = true;
+        jumpFailTimer = maxFailTime;
+        waitTime = Random.Range(minTime, maxTime);
+        endChosen = false;
+        target.transform.position = movingTarget.transform.position;
+        ChooseWanderPoint();
+        ep.transform.position = new Vector3(0,0,0);
+
+    }
+
+    bool EvenCloserCheck()
+    {
+        //do this every time we enable agent, repeat until true
+        //only move if this is true
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(transform.position, out hit, 1f, 1))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void CreateNavAgent()
+    {
+        agent = gameObject.AddComponent<NavMeshAgent>();
+        agent.enabled = false;
+        agent.baseOffset = 0.3f;
+        agent.height = 0.5f;
+        agent.angularSpeed = 500f;
     }
 
 }

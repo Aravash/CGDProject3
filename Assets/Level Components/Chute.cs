@@ -30,6 +30,7 @@ public class Chute : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GameManager._i.counterDec();
         Destroy(other.gameObject, 2);
 
         // No points gained or lost from incinerating an object
@@ -37,29 +38,43 @@ public class Chute : MonoBehaviour
         {
             Debug.Log("Incinerated!");
             GameAudioManager.Incinerate(other.transform.position);
+            if (other.tag == "GOOD")
+            {
+                GameManager._i.mistakeGood();
+            }
+            else if(other.GetComponent<Enemy>())
+            {
+                GameManager._i.enemyBurnt();
+            }
             return;
         }
 
         // classify object
         if (other.tag == "GOOD")
         {
-            if (other.GetComponent<Renderer>().material.color == my_color &&
-                !other.GetComponent<WrappingHandler>())
+            if (other.GetComponent<Renderer>().material.color == my_color)
             {
-                Debug.Log("CORRECT! GAIN POINTS!!"); // gain 2
                 GameManager.ChangeScore(GoodGain);
                 GameAudioManager.GainScore();
                 return;
             }
-            Debug.Log("WRONG!!! LOSE POINTS!!!"); // lose 3
             GameManager.ChangeScore(-WrongColourLoss);
             GameAudioManager.LoseScore();
+            GameManager._i.mistakeColour();
         }
         else if (other.tag == "BAD")
         {
-            Debug.Log("WRONG!!! LOSE MANY POINTS!!!!!"); // lose 5
             GameManager.ChangeScore(-BadLoss);
             GameAudioManager.LoseScore();
+
+            if (other.GetComponent<Enemy>())
+            {
+                GameManager._i.enemyMissed();
+            }
+            else
+            {
+                GameManager._i.mistakeTrash();
+            }
         }
     }
 

@@ -10192,8 +10192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b86121c24e37c4e8d3d02d35b50288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMouseSensitivity: 70
-  yMouseSensitivity: 70
+  MouseSensitivityPath: Assets/Resources/Tools/sensitivity.json
+  xMouseSensitivity: 30
+  yMouseSensitivity: 30
   recoilOffset: 0
   recoilForce: 0.3
   gunSway: {fileID: 6778800389717569798}
