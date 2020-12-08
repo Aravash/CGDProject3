@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public enum ObjectTypes
 {
@@ -62,7 +63,11 @@ public class ObjectCreator : MonoBehaviour
 
     public void BuildObject()
     {
-        GameManager._i.counterInc();
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "GameScene" || currentScene.name == "GameScene_ai")
+        {
+            GameManager._i.counterInc();
+        }
 
         Vector3 pos = new Vector3(Random.Range(col.bounds.min.x, col.bounds.max.x),
                                   transform.position.y,
@@ -92,7 +97,7 @@ public class ObjectCreator : MonoBehaviour
             if (Random.Range(0, WRAPPED_CHANCE_RECIPROCAL) == 0)
             {
                 newObj.AddComponent<WrappingHandler>();
-                newObj.GetComponent<WrappingHandler>().SetColour(colour);
+                //newObj.GetComponent<WrappingHandler>().SetColour(colour);
             }
         }
 
@@ -107,7 +112,7 @@ public class ObjectCreator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, Vector3.one);
+        Gizmos.DrawCube(transform.position, Vector3.one);
     }
 
     private void waveTick()

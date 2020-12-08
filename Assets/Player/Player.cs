@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
 
     // GravityGun
     Rigidbody held_object = null;
+
+    GameObject held_item = null;
     Vector3 grip_offset = Vector3.forward * 2f;
     const float PUSH_FORCE = 15;
     const float PULL_FORCE = 0.1f;
@@ -194,17 +196,21 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100.0f, 1))
         {
             Debug.DrawRay(playerView.position, playerView.forward * 100.0f, Color.white, 1);
-
             if(hit.collider.gameObject.GetComponent<Enemy>())
             {
                 hit.collider.gameObject.GetComponent<Enemy>().DeactivateEnemy();
             }
 
             Rigidbody other = hit.collider.gameObject.GetComponent<Rigidbody>();
-            if(other)
+            
+            if (other)
             {
+                Renderer item = hit.rigidbody.gameObject.GetComponent<Renderer>();
                 held_object = other;
+                held_item = item.gameObject;
+                held_item.GetComponent<Renderer>().materials[1].SetFloat("_Outline", 0.05f);
                 held_object.useGravity = false;
+                feelerManager.SetHold(true);
             }
         }
     }
@@ -213,8 +219,13 @@ public class Player : MonoBehaviour
     {
         gunAudio.playDrop();
         if (held_object)
+        {
             held_object.useGravity = true;
+            held_item.GetComponent<Renderer>().materials[1].SetFloat("_Outline", 0f);
+        }
+        
         held_object = null;
+        feelerManager.SetHold(false);
     }
 
     private void pull()
@@ -226,6 +237,12 @@ public class Player : MonoBehaviour
 
         Debug.DrawRay(held_object.gameObject.transform.position, diff, Color.green, Time.fixedDeltaTime);
 
+        //temporary solution
+        if (held_object.GetComponent<Enemy>())
+        {
+            held_object.GetComponent<Enemy>().DeactivateEnemy();
+        }
+        
         // Truncate the object's vel
         float mag = Vector3.Dot(held_object.velocity, diff.normalized);
         if (mag > PULL_MAX_SPEED)
@@ -249,9 +266,10 @@ public class Player : MonoBehaviour
                 held_object.useGravity = true;
                 held_object.velocity *= 0;
 
-                if (held_object.gameObject.GetComponent<WrappingHandler>())
+
+                if (held_object.gameObject.GetComponent<ImpactDetector>())
                 {
-                    held_object.gameObject.GetComponent<WrappingHandler>().allowBreaking = true;
+                    held_object.gameObject.GetComponent<ImpactDetector>().allowBreaking = true;
                 }
 
                 Vector3 dir = playerView.transform.rotation * Vector3.forward * PUSH_FORCE;
@@ -259,10 +277,14 @@ public class Player : MonoBehaviour
                 held_object = null;
                 recoilOffset += recoilForce;
                 burst.Play();
+                feelerManager.SetHold(false);
+                feelerManager.Fire();
                 Debug.DrawRay(playerView.transform.position, dir, Color.green, 1.5f);
                 // set the timers
                 grab_cd = GRAB_CD;
                 launch_cd = LAUNCH_CD;
+
+                held_item.GetComponent<Renderer>().materials[1].SetFloat("_Outline", 0f);
             }
         }
         // else Punt the object in front
@@ -282,6 +304,7 @@ public class Player : MonoBehaviour
                     grab_cd = GRAB_CD;
                     launch_cd = LAUNCH_CD;
                     recoilOffset += recoilForce;
+                    feelerManager.Fire();
                     punt.Play();
                 }
             }

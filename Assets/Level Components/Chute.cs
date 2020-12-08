@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Experimental.VFX;
 using UnityEngine;
+using UnityEngine.VFX;
+using UnityEngine.SceneManagement;
 
 public class Chute : MonoBehaviour
 {
@@ -18,62 +21,111 @@ public class Chute : MonoBehaviour
     [SerializeField] private float GoodGain = 2f;
     [SerializeField] private float WrongColourLoss = 3f;
     [SerializeField] private float BadLoss = 5;
-    
+
     [SerializeField] bool incinerator = false;
+
+    [SerializeField] GameObject vfx;
 
 
     // Start is called before the first frame update
     void Start()
     {
         my_color = getColour(desired_type);
+
+        vfx = GameObject.FindGameObjectWithTag(desired_type.ToString());
+        vfx.GetComponent<VisualEffect>().Stop();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        GameManager._i.counterDec();
         Destroy(other.gameObject, 2);
 
-        // No points gained or lost from incinerating an object
-        if (incinerator)
-        {
-            Debug.Log("Incinerated!");
-            GameAudioManager.Incinerate(other.transform.position);
-            if (other.tag == "GOOD")
-            {
-                GameManager._i.mistakeGood();
-            }
-            else if(other.GetComponent<Enemy>())
-            {
-                GameManager._i.enemyBurnt();
-            }
-            return;
-        }
+        Scene currentScene = SceneManager.GetActiveScene();
 
-        // classify object
-        if (other.tag == "GOOD")
+        if (currentScene.name == "GameScene" || currentScene.name == "GameScene_ai")
+
         {
-            if (other.GetComponent<Renderer>().material.color == my_color)
+
+            GameManager._i.counterDec();
+
+
+
+            // No points gained or lost from incinerating an object
+
+            if (incinerator)
+
             {
-                GameManager.ChangeScore(GoodGain);
-                GameAudioManager.GainScore();
+
+                Debug.Log("Incinerated!");
+
+                if (other.tag == "GOOD")
+
+                {
+
+                    GameManager._i.mistakeGood();
+
+                }
+
+                else if (other.GetComponent<Enemy>())
+
+                {
+
+                    GameManager._i.enemyBurnt();
+
+                }
+
                 return;
-            }
-            GameManager.ChangeScore(-WrongColourLoss);
-            GameAudioManager.LoseScore();
-            GameManager._i.mistakeColour();
-        }
-        else if (other.tag == "BAD")
-        {
-            GameManager.ChangeScore(-BadLoss);
-            GameAudioManager.LoseScore();
 
-            if (other.GetComponent<Enemy>())
-            {
-                GameManager._i.enemyMissed();
             }
-            else
+
+
+
+            // classify object
+
+            if (other.tag == "GOOD")
+
             {
-                GameManager._i.mistakeTrash();
+
+                if (other.GetComponent<Renderer>().material.color == my_color)
+
+                {
+
+                    GameManager.ChangeScore(GoodGain);
+                    vfx.GetComponent<VisualEffect>().Play();
+                    return;
+
+                }
+
+                GameManager.ChangeScore(-WrongColourLoss);
+
+                GameManager._i.mistakeColour();
+
+            }
+
+            else if (other.tag == "BAD")
+
+            {
+
+                GameManager.ChangeScore(-BadLoss);
+
+
+
+                if (other.GetComponent<Enemy>())
+
+                {
+
+                    GameManager._i.enemyMissed();
+
+                }
+
+                else
+
+                {
+
+                    GameManager._i.mistakeTrash();
+
+                }
+
             }
         }
     }

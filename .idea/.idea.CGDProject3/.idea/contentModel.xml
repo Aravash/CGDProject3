@@ -30,6 +30,7 @@
         <e p="navigationscript.cs" t="Include" />
         <e p="objects" t="Include">
           <e p="Door.cs" t="Include" />
+          <e p="ImpactDetector.cs" t="Include" />
           <e p="ObjectCreator.cs" t="Include" />
           <e p="WrappingHandler.cs" t="Include" />
         </e>
@@ -37,6 +38,9 @@
           <e p="Player.cs" t="Include" />
           <e p="SensWriter.cs" t="Include" />
           <e p="UIWeapon" t="Include">
+            <e p="Feelers" t="Include">
+              <e p="feelerManager.cs" t="Include" />
+            </e>
             <e p="renderDepthTexture.cs" t="Include" />
             <e p="scrolltex.cs" t="Include" />
             <e p="WeaponLook.cs" t="Include" />
