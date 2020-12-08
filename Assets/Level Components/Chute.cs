@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Experimental.VFX;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Chute : MonoBehaviour
 {
@@ -18,14 +20,19 @@ public class Chute : MonoBehaviour
     [SerializeField] private float GoodGain = 2f;
     [SerializeField] private float WrongColourLoss = 3f;
     [SerializeField] private float BadLoss = 5;
-    
+
     [SerializeField] bool incinerator = false;
+
+    [SerializeField] GameObject vfx;
 
 
     // Start is called before the first frame update
     void Start()
     {
         my_color = getColour(desired_type);
+
+        vfx = GameObject.FindGameObjectWithTag(desired_type.ToString());
+        vfx.GetComponent<VisualEffect>().Stop();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,6 +53,7 @@ public class Chute : MonoBehaviour
             {
                 Debug.Log("CORRECT! GAIN POINTS!!"); // gain 2
                 GameManager.ChangeScore(GoodGain);
+                vfx.GetComponent<VisualEffect>().Play();
                 return;
             }
             Debug.Log("WRONG!!! LOSE POINTS!!!"); // lose 3

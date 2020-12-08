@@ -6,6 +6,12 @@ TagManager:
   tags:
   - GOOD
   - BAD
+  - RED
+  - BLUE
+  - CYAN
+  - YELLOW
+  - LIME
+  - PURPLE
   layers:
   - Default
   - TransparentFX
