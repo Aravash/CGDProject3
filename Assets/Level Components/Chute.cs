@@ -32,8 +32,12 @@ public class Chute : MonoBehaviour
     {
         my_color = getColour(desired_type);
 
-        vfx = GameObject.FindGameObjectWithTag(desired_type.ToString());
-        vfx.GetComponent<VisualEffect>().Stop();
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "GameScene" || currentScene.name == "GameScene_ai")
+        {
+            vfx = GameObject.FindGameObjectWithTag(desired_type.ToString());
+            vfx.GetComponent<VisualEffect>().Stop();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

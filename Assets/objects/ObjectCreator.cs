@@ -17,7 +17,7 @@ public class ObjectCreator : MonoBehaviour
     private GameObject[] models;
     private BoxCollider col;
 
-    float wave_timer = 0;
+    float wave_timer = 5;
     [SerializeField] float AVRG_WAVE_TMR = 7;
     float spawn_timer = 0;
     const float SPAWN_TMR_MAX = 0.7f;
@@ -40,7 +40,7 @@ public class ObjectCreator : MonoBehaviour
 
     private void Update()
     {
-        //Test code
+        /*//Test code
         if (Input.GetKeyDown(KeyCode.K))
         {
             BuildObject();
@@ -51,7 +51,7 @@ public class ObjectCreator : MonoBehaviour
             WRAPPED_CHANCE_RECIPROCAL = 0;
             BuildObject();
             WRAPPED_CHANCE_RECIPROCAL = currentChance;
-        }
+        }*/
 
         // Automatic waves
         wave_timer -= Time.deltaTime;

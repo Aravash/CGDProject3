@@ -9,7 +9,15 @@
         <e p="Audio" t="Include">
           <e p="Attract.cs" t="Include" />
           <e p="Footsteps.cs" t="Include" />
+          <e p="GameAudioManager.cs" t="Include" />
+          <e p="GunAudio.cs" t="Include" />
+          <e p="ObjectAudio.cs" t="Include" />
+          <e p="ScoreAudio.cs" t="Include" />
+          <e p="StompNoise.cs" t="Include" />
+          <e p="Test_FMOD_OneShot.cs" t="Include" />
         </e>
+        <e p="Bobbing.cs" t="Include" />
+        <e p="Enemy2.cs" t="Include" />
         <e p="Level Components" t="Include">
           <e p="CanvasManager.cs" t="Include" />
           <e p="Chute.cs" t="Include" />
@@ -131,7 +139,9 @@
             </e>
           </e>
         </e>
-        <e p="StompNoise.cs" t="Include" />
+        <e p="Shader&amp;Particles" t="Include">
+          <e p="OutlineShader.shader" t="Include" />
+        </e>
       </e>
       <e p="CGDProject3.sln" t="IncludeFlat" />
       <e p="FMODUnity.csproj" t="IncludeRecursive" />

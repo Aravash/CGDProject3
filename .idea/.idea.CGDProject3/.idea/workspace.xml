@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21fb1236-1537-4a1c-b3d3-0bf31b0b605b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Level Components/Chute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level Components/Chute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponSway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponSway.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,31 +19,30 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../Astar pathfinding/Assets/pathRequestManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Level Components/Chute.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/objects/Door.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.png.meta" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Monster Parts/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player/SensWriter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerHolder.prefab" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/scrolltex.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Astar pathfinding/Assets/Agent.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/objects/ImpactDetector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/Feelers/feelerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Robot-Buddies/Assets/resource/Shader/OverwatchShield.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/GameScene.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/objects/WrappingHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Astar pathfinding/Assets/pathRequestManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Level Components/Chute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponSway.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/objects/Door.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.png.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Monster Parts/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/SensWriter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Level Components/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/PlayerHolder.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/scrolltex.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Astar pathfinding/Assets/Agent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../CGDProject2/Assets/menuscript/MenuManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Player/UIWeapon/Feelers/feelerManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -49,8 +52,6 @@
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/OverwatchShield.shader" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/scrolltex.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/UI/ProgressBar.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponSway.cs" />
-        <option value="$PROJECT_DIR$/Assets/Level Components/Chute.cs" />
         <option value="$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.cs" />
         <option value="$PROJECT_DIR$/Assets/objects/Door.cs" />
         <option value="$PROJECT_DIR$/Assets/Resources/Tools/sensitivity.txt" />
@@ -59,13 +60,15 @@
         <option value="$PROJECT_DIR$/Assets/Player/SensWriter.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/Feelers/feelerManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" />
         <option value="$PROJECT_DIR$/Assets/objects/ImpactDetector.cs" />
         <option value="$PROJECT_DIR$/Assets/objects/WrappingHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/menu/menuCamera.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponSway.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Level Components/Chute.cs" />
       </list>
     </option>
   </component>
@@ -132,6 +135,7 @@
       <workItem from="1607289816057" duration="5268000" />
       <workItem from="1607363212915" duration="4212000" />
       <workItem from="1607378734254" duration="8548000" />
+      <workItem from="1607467227474" duration="1533000" />
     </task>
     <servers />
   </component>
