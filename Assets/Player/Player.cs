@@ -190,9 +190,10 @@ public class Player : MonoBehaviour
         {
             Debug.DrawRay(playerView.position, playerView.forward * 100.0f, Color.white, 1);
             Rigidbody other = hit.collider.gameObject.GetComponent<Rigidbody>();
-            Renderer item = hit.rigidbody.gameObject.GetComponent<Renderer>();
+            
             if (other)
             {
+                Renderer item = hit.rigidbody.gameObject.GetComponent<Renderer>();
                 held_object = other;
                 held_item = item.gameObject;
                 held_item.GetComponent<Renderer>().materials[1].SetFloat("_Outline", 0.05f);

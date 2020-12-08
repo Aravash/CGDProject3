@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5436550580382122840}
   - component: {fileID: 5436550580382122843}
   m_Layer: 0
-  m_Name: BlueFireWork
+  m_Name: CyanFireWork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,10 +53,10 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: 100
         m_Name: ExplosionAmount
-        m_Overridden: 1
-      - m_Value: 60
+        m_Overridden: 0
+      - m_Value: 0
         m_Name: TriggerRate
-        m_Overridden: 1
+        m_Overridden: 0
     m_Vector2f:
       m_Array: []
     m_Vector3f:
