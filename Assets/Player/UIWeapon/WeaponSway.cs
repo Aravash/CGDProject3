@@ -21,6 +21,7 @@ public class WeaponSway : MonoBehaviour
     public void gunUpdate(Vector3 finalPosition)
     {
         finalPosition.x = Mathf.Clamp(finalPosition.x, -maxAmount, maxAmount);
+        finalPosition.y = Mathf.Clamp(finalPosition.y, -maxAmount, maxAmount);
         
         transform.localPosition = Vector3.Lerp(
             transform.localPosition, (finalPosition + initialPosition) * strength, smoothStrength * Time.deltaTime);

@@ -2562,6 +2562,14 @@ PrefabInstance:
       propertyPath: recoilForce
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3367589180185264411, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367589180212621293, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
+      propertyPath: lookAtSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3367589180304625462, guid: ac8ca0911e335cb4e9c9d2427ebb3939, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4730,7 +4738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4750,7 +4758,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You're Won! Loser!
+  m_Text: You Lose!
 --- !u!222 &960844784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4901,7 +4909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4921,7 +4929,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You're Won!
+  m_Text: All in a day's work!
 --- !u!222 &981199010
 CanvasRenderer:
   m_ObjectHideFlags: 0
