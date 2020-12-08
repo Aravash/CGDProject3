@@ -30,6 +30,7 @@
         <e p="navigationscript.cs" t="Include" />
         <e p="objects" t="Include">
           <e p="Door.cs" t="Include" />
+          <e p="ImpactDetector.cs" t="Include" />
           <e p="ObjectCreator.cs" t="Include" />
           <e p="WrappingHandler.cs" t="Include" />
         </e>
