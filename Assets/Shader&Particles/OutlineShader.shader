@@ -1,5 +1,5 @@
 ﻿
-Shader "Unlit/NewUnlitShader"
+Shader "Unlit/OutlineShader"
 {
 	Properties
 	{
