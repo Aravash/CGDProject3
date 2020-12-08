@@ -51,6 +51,8 @@ public class Enemy : MonoBehaviour
     bool yeetSelfed;
     bool selfRighted;
 
+    bool tryingToWander;
+
     //bool doJump;
     //bool doFlip;
 
@@ -83,6 +85,7 @@ public class Enemy : MonoBehaviour
         tryingToRight = false;
         yeetSelfed = false;
         selfRighted = false;
+        tryingToWander = false;
     }
 
     // Update is called once per frame
@@ -204,6 +207,10 @@ public class Enemy : MonoBehaviour
         if(tryingToRight)
         {
             JumpFailure();
+        }
+        if(tryingToWander)
+        {
+            ChooseWanderPoint();
         }
 
     }
@@ -385,16 +392,24 @@ public class Enemy : MonoBehaviour
         target.position = finalPosition;
         movingTarget.position = finalPosition;
         */
-
-        float walkRadius = 12;
-        Vector3 newRandomPos = new Vector3 (Random.insideUnitSphere.x * walkRadius, transform.position.y, Random.insideUnitSphere.z * walkRadius);
-        NavMeshHit hit;
-        if(NavMesh.SamplePosition(newRandomPos, out hit, walkRadius, 1))
+        if(target != null)
         {
-            Vector3 finalPosition = hit.position;
-            target.transform.position = finalPosition;
-            movingTarget.transform.position = finalPosition;
+            tryingToWander = false;
+            float walkRadius = 12;
+            Vector3 newRandomPos = new Vector3(Random.insideUnitSphere.x * walkRadius, transform.position.y, Random.insideUnitSphere.z * walkRadius);
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(newRandomPos, out hit, walkRadius, 1))
+            {
+                Vector3 finalPosition = hit.position;
+                target.transform.position = finalPosition;
+                movingTarget.transform.position = finalPosition;
+            }
         }
+        else
+        {
+            tryingToWander = true;
+        }
+
     }
 
     void YeetSelf()
