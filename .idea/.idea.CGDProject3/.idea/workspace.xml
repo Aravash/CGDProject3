@@ -3,42 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="21fb1236-1537-4a1c-b3d3-0bf31b0b605b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CGDProject3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/JRE.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/JRE.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/MFDOLL.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/MFDOLL.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/chair.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/chair.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/chairstool.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/chairstool.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/crab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/crab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/davidbust.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/davidbust.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/derringer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/derringer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/diggerclaw.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/diggerclaw.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/drawer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/drawer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/fancychair.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/fancychair.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/fancydoubledoors.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/fancydoubledoors.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/footcrate.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/footcrate.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/gamerchair.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/gamerchair.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/glove.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/glove.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/grapes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/grapes.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/guitar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/guitar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/gunsnubnose.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/gunsnubnose.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/hand.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/hand.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/lamp.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/lamp.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/lampdemo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/lampdemo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/lamprustic.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/lamprustic.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/mug.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/mug.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/plane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/plane.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/racecar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/racecar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/roundtable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/roundtable.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/securitycamera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/securitycamera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/sofa.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/sofa.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/statue.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/statue.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/table.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/table.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/television2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/television2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/toiletpaper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/toiletpaper.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/toyrocket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/toyrocket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/truck.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/truck.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/objects/truckdemo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/objects/truckdemo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Wrapping/Wrapping.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Wrapping/Wrapping.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/objects/WrappingHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/objects/WrappingHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +19,7 @@
     <setting file="file://$PROJECT_DIR$/../../Robot-Buddies/Assets/resource/Shader/OverwatchShield.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/GameScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/objects/WrappingHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Astar pathfinding/Assets/pathRequestManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Player/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Level Components/CanvasManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -80,7 +48,6 @@
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/scrolltex.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/UI/ProgressBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponSway.cs" />
-        <option value="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" />
         <option value="$PROJECT_DIR$/Assets/Level Components/Chute.cs" />
         <option value="$PROJECT_DIR$/Assets/Mats/Sprites/Arrow.cs" />
         <option value="$PROJECT_DIR$/Assets/objects/Door.cs" />
@@ -93,6 +60,8 @@
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/WeaponLook.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/UIWeapon/Feelers/feelerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/objects/ObjectCreator.cs" />
+        <option value="$PROJECT_DIR$/Assets/objects/WrappingHandler.cs" />
       </list>
     </option>
   </component>
