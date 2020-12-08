@@ -297,8 +297,9 @@ public class Enemy : MonoBehaviour
         rb.isKinematic = false;
         legs.GetComponent<leg>().DeactivateLeg();
         active = false;
-        doonce = false;
         waitTime = Random.Range(minTime, maxTime);
+        doonce = false;
+        
         ChooseWanderPoint();
     }
 
@@ -311,7 +312,20 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         fixRot = false;
         rb.rotation = Quaternion.identity;
-        
+
+        if(ep == null)
+        {
+            ep = new GameObject("endpoint");
+        }
+
+        if(target == null)
+        {
+            movingTarget = new GameObject("target");
+            target = movingTarget;
+        }
+
+
+
         yield return new WaitForSeconds(0.3f);
         rb.isKinematic = true;
 
@@ -427,8 +441,8 @@ public class Enemy : MonoBehaviour
 
 
         //destroy target and ep
-        Destroy(target);
-        Destroy(ep);
+        //Destroy(target);
+        //Destroy(ep);
     }
 
     bool CloseEnoughCheck()
@@ -462,10 +476,16 @@ public class Enemy : MonoBehaviour
             if(!selfRighted)
             {
                 StartCoroutine("RightSelf");
-                //remaketarget????
-                movingTarget = new GameObject("target");
-                target = movingTarget;
-                ep = new GameObject("endpoint");
+                if (ep == null)
+                {
+                    ep = new GameObject("endpoint");
+                }
+
+                if (target == null)
+                {
+                    movingTarget = new GameObject("target");
+                    target = movingTarget;
+                }
                 selfRighted = true;
             }
 
