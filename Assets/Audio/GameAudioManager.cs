@@ -49,6 +49,9 @@ public class GameAudioManager : MonoBehaviour
     [SerializeField]
     [FMODUnity.EventRef]
     public string FMODFireworks = null;
+    [SerializeField]
+    [FMODUnity.EventRef]
+    public string FMODEnemyDestroy = null;
 
 
     #endregion
@@ -99,5 +102,11 @@ public class GameAudioManager : MonoBehaviour
     {
         FMODUnity.RuntimeManager.PlayOneShot(_instance.FMODScoreDown, getPlayerPos());
     }
+
+    public static void PlayDestroy(Vector3 pos)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(_instance.FMODEnemyDestroy, pos);
+    }
+    
 
 }

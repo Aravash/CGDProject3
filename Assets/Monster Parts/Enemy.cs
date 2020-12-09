@@ -563,4 +563,9 @@ public class Enemy : MonoBehaviour
         agent.angularSpeed = 500f;
     }
 
+
+    void OnDestroy()
+    {
+        GameAudioManager.PlayDestroy(this.transform.position);
+    }
 }
