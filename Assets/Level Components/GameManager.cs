@@ -69,6 +69,15 @@ public class GameManager : MonoBehaviour
     public static void ChangeScore(float change)
     {
         _i.currentScore += change;
+
+        if(change >= 0)
+        {
+            GameAudioManager.GainScore();
+        }
+        else
+        {
+            GameAudioManager.LoseScore();
+        }
     }
 
     #region stat tracking
